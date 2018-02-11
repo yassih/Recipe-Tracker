@@ -8,7 +8,7 @@ margin: 20px;
 padding: 20px;
 `;
 
-export class RecipeDetails extends React.Component<RouteComponentProps<{id: string}>,{details : any}>{
+export class RecipeDetails extends React.Component<RouteComponentProps<{id: any}>,{details : any}>{
 
     constructor(){
        super(); 
@@ -17,7 +17,7 @@ export class RecipeDetails extends React.Component<RouteComponentProps<{id: stri
     }
 
     componentDidMount(){
-        this.getRecipe('84c5debf-97a2-4781-82ba-bf93dca8ae79');
+        this.getRecipe(this.props.match.params.id);
     }
 
     public getRecipe(id: string){
