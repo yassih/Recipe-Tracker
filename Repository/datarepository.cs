@@ -25,8 +25,6 @@ namespace App.Repository
             var count = _db.SaveChanges();
             Console.WriteLine("{0} records saved to database", count);
 
-            var a = _db.Recipe.FirstOrDefault(x => x.Id == new Guid("bc3634c1-aa2b-4ebc-9f8e-1e63c98a9a87"));
-            List<Recipe> ap = _db.Recipe.ToList();
             }
 
             catch (Exception ex)

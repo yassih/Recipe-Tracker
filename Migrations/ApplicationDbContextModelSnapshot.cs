@@ -19,18 +19,47 @@ namespace App.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
 
+            modelBuilder.Entity("App.Models.Ingridient", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("CreateDateTime");
+
+                    b.Property<string>("Measurement");
+
+                    b.Property<string>("Name");
+
+                    b.Property<Guid?>("RecipeId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipeId");
+
+                    b.ToTable("Ingridient");
+                });
+
             modelBuilder.Entity("App.Models.Recipe", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime?>("CreateDateTime");
+                    b.Property<DateTime>("CreateDateTime");
+
+                    b.Property<string>("Instructions");
 
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
 
                     b.ToTable("Recipe");
+                });
+
+            modelBuilder.Entity("App.Models.Ingridient", b =>
+                {
+                    b.HasOne("App.Models.Recipe", "Recipe")
+                        .WithMany("Ingridients")
+                        .HasForeignKey("RecipeId");
                 });
 #pragma warning restore 612, 618
         }

@@ -61,30 +61,34 @@ const Button = styled.input`
     margin-top: 20px;
 `;
 
-export class AddRecipe extends React.Component<RouteComponentProps<{}>, {value : string , error : string}> {
+export class AddRecipe extends React.Component<RouteComponentProps<{}>, {title : string ,instructions: string,  error : string}> {
     constructor() {
         super();
-        this.state = { value: '' , error: ''};
+        this.state = { title: '' , instructions:'' , error: ''};
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleInstructionsChange = this.handleInstructionsChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.addRecipe = this.addRecipe.bind(this);
     }
 
-    handleChange(event: any) {
-        this.setState({ value: event.target.value });
+    handleTitleChange(event: any) {
+        this.setState({ title: event.target.value });
+    }
+    handleInstructionsChange(event: any){
+        this.setState({ instructions: event.target.value});
     }
 
     handleSubmit(event: any) {
-        alert('A name was submitted: ' + this.state.value);
+        alert('A name was submitted: ' + this.state.title);
         event.preventDefault();
     }
 
     private addRecipe(): void {
         var data = {
             createDateTime: new Date(),
-            //id: '123',
-            Title: this.state.value
+            Instructions: this.state.instructions,
+            Title: this.state.title
         };
         console.log('im clicked');
         fetch('/api/Recipe/AddRecipe', {
@@ -115,9 +119,9 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, {value :
                 <FormField>
                     <Label>Recipe Name:</Label>
                     <Input
-                        id="recipe_name_input"
-                        value={this.state.value}
-                        onChange={this.handleChange}
+                        id="recipe_name"
+                        value={this.state.title}
+                        onChange={this.handleTitleChange}
                     />
                     <label>{this.state.error}</label>
                 </FormField>
@@ -127,7 +131,11 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, {value :
                 </FormField>
                 <FormField>
                     <Label>Recipe Instruction:</Label>
-                    <Input />
+                    <Input 
+                        id="recipe_instructions"
+                        value= {this.state.instructions}
+                        onChange={this.handleInstructionsChange}
+                    />
                 </FormField>
                 <input type='button' onClick={this.addRecipe} value='Add Recipe' />
             </Form>);

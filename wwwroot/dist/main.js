@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8c89843ce2275d491433"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6648885729d1bcee706f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -9868,25 +9868,29 @@ var AddRecipe = (function (_super) {
     __extends(AddRecipe, _super);
     function AddRecipe() {
         var _this = _super.call(this) || this;
-        _this.state = { value: '', error: '' };
-        _this.handleChange = _this.handleChange.bind(_this);
+        _this.state = { title: '', instructions: '', error: '' };
+        _this.handleTitleChange = _this.handleTitleChange.bind(_this);
+        _this.handleInstructionsChange = _this.handleInstructionsChange.bind(_this);
         _this.handleSubmit = _this.handleSubmit.bind(_this);
         _this.addRecipe = _this.addRecipe.bind(_this);
         return _this;
     }
-    AddRecipe.prototype.handleChange = function (event) {
-        this.setState({ value: event.target.value });
+    AddRecipe.prototype.handleTitleChange = function (event) {
+        this.setState({ title: event.target.value });
+    };
+    AddRecipe.prototype.handleInstructionsChange = function (event) {
+        this.setState({ instructions: event.target.value });
     };
     AddRecipe.prototype.handleSubmit = function (event) {
-        alert('A name was submitted: ' + this.state.value);
+        alert('A name was submitted: ' + this.state.title);
         event.preventDefault();
     };
     AddRecipe.prototype.addRecipe = function () {
         var _this = this;
         var data = {
             createDateTime: new Date(),
-            //id: '123',
-            Title: this.state.value
+            Instructions: this.state.instructions,
+            Title: this.state.title
         };
         console.log('im clicked');
         fetch('/api/Recipe/AddRecipe', {
@@ -9909,14 +9913,14 @@ var AddRecipe = (function (_super) {
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormHeader, null, "Recipe Card"),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Name:"),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, { id: "recipe_name_input", value: this.state.value, onChange: this.handleChange }),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, { id: "recipe_name", value: this.state.title, onChange: this.handleTitleChange }),
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("label", null, this.state.error)),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Ingredients:"),
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, null)),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Instruction:"),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, null)),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, { id: "recipe_instructions", value: this.state.instructions, onChange: this.handleInstructionsChange })),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: 'button', onClick: this.addRecipe, value: 'Add Recipe' })));
     };
     return AddRecipe;
@@ -10334,12 +10338,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 
 
-var Divo = (_a = ["\nborder: 2px solid green;\nmargin: 20px;\npadding: 20px;\n"], _a.raw = ["\nborder: 2px solid green;\nmargin: 20px;\npadding: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_a));
+var DetailBox = (_a = ["\nborder: 2px solid green;\nmargin: 20px;\npadding: 20px;\n"], _a.raw = ["\nborder: 2px solid green;\nmargin: 20px;\npadding: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_a));
 var RecipeDetails = (function (_super) {
     __extends(RecipeDetails, _super);
     function RecipeDetails() {
         var _this = _super.call(this) || this;
-        _this.state = { details: {} };
+        _this.state = { recipe: {} };
         _this.getRecipe = _this.getRecipe.bind(_this);
         return _this;
     }
@@ -10355,11 +10359,20 @@ var RecipeDetails = (function (_super) {
                 'Content-Type': 'application/json'
             })
         }).then(function (res) { return res.json(); }).then(function (data) {
-            _this.setState({ details: data });
+            _this.setState({ recipe: data });
         });
     };
     RecipeDetails.prototype.render = function () {
-        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Divo, null, this.state.details.title));
+        var ingridientsList = ['just', ' testing'];
+        if (this.state.recipe.Ingridients) {
+            this.state.recipe.Ingridients.forEach(function (ingredient) {
+                ingridientsList.push(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null, ingredient.name));
+            });
+        }
+        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](DetailBox, null, this.state.recipe.title),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](DetailBox, null, this.state.recipe.instructions),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("ul", null, ingridientsList)));
     };
     ;
     return RecipeDetails;

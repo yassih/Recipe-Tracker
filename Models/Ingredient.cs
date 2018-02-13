@@ -1,20 +1,18 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
-using App.Models;
 
 namespace App.Models
 {
-    public class Recipe
+    public class Ingridient
     {
         [Key]
         public Guid Id { get; set; }
-        public string Title { get; set; }
-        public string Instructions {get; set;}
+        public string Name { get; set; }
         public DateTime CreateDateTime { get; set; }
-        public ICollection<Ingridient> Ingridients {get; set;}
+        public string Measurement { get; set;} 
+        public Recipe Recipe { get; set; }
 
     }
 }

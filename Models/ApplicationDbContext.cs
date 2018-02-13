@@ -10,6 +10,7 @@ namespace App.Models
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<Recipe> Recipe { get; set; }
+        public DbSet<Ingridient> Ingridient {get; set;}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

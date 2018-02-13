@@ -27,6 +27,10 @@ namespace App.Services
         {
             try
             {
+                if(recipe.Title == "")
+                {
+                    //throw new Exception("name cannot be empty");
+                }
                 List<Recipe> allRecipes = _dataRepository.getAllRecipes();
                 foreach (var item in allRecipes)
                 {
