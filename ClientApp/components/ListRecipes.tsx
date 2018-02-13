@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import RecipeCard from './RecipeCard';
 
 export class ListRecipes extends React.Component<RouteComponentProps<{}>, { recipesSource: any, loading: boolean }> {
     constructor() {
@@ -35,20 +35,18 @@ export class ListRecipes extends React.Component<RouteComponentProps<{}>, { reci
 
     public render() {
         let recipeList: any = [];
-        if(this.state.recipesSource.length > 0){
+        if (this.state.recipesSource.length > 0) {
             this.state.recipesSource.forEach((recipe: any) => {
-                recipeList.push(<li key={recipe.id}><Link to={`/recipedetails/${recipe.id}`}>{recipe.title}</Link></li>);
+                recipeList.push(<RecipeCard key={recipe.id} title={recipe.title}></RecipeCard>);
             });
-        }else{
-        recipeList.push(<li>No Recipe Available</li>);
+        } else {
+            recipeList.push(<li>No Recipe Available</li>);
         }
-        
+
 
         return (
             <div>
-                <ul>
-                    {recipeList}
-                </ul>
+                {recipeList}
             </div>
 
         );
