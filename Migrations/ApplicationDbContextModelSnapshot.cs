@@ -46,6 +46,8 @@ namespace App.Migrations
 
                     b.Property<DateTime>("CreateDateTime");
 
+                    b.Property<string>("Image");
+
                     b.Property<string>("Instructions");
 
                     b.Property<string>("Title");

@@ -11,7 +11,7 @@ using System;
 namespace App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180213011222_InitialCreate")]
+    [Migration("20180214031730_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,8 @@ namespace App.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("CreateDateTime");
+
+                    b.Property<string>("Image");
 
                     b.Property<string>("Instructions");
 

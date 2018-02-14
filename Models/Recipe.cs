@@ -14,6 +14,7 @@ namespace App.Models
         public string Title { get; set; }
         public string Instructions {get; set;}
         public DateTime CreateDateTime { get; set; }
+        public string Image { get; set; }
         public ICollection<Ingridient> Ingridients {get; set;}
 
     }

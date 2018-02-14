@@ -14,6 +14,7 @@ namespace App.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: false),
+                    Image = table.Column<string>(nullable: true),
                     Instructions = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true)
                 },

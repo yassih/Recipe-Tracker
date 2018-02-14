@@ -3,6 +3,15 @@ import { RouteComponentProps } from 'react-router';
 import styled from 'styled-components';
 import RecipeCard from './RecipeCard';
 
+const Container = styled.div`
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+`;
+
 export class ListRecipes extends React.Component<RouteComponentProps<{}>, { recipesSource: any, loading: boolean }> {
     constructor() {
         super();
@@ -37,7 +46,9 @@ export class ListRecipes extends React.Component<RouteComponentProps<{}>, { reci
         let recipeList: any = [];
         if (this.state.recipesSource.length > 0) {
             this.state.recipesSource.forEach((recipe: any) => {
-                recipeList.push(<RecipeCard key={recipe.id} title={recipe.title}></RecipeCard>);
+                console.log('printing id');
+                console.log(recipe.id);
+                recipeList.push(<RecipeCard key={recipe.id} title={recipe.title} recipeId={recipe.id} image={recipe.image}></RecipeCard>);
             });
         } else {
             recipeList.push(<li>No Recipe Available</li>);
@@ -45,9 +56,9 @@ export class ListRecipes extends React.Component<RouteComponentProps<{}>, { reci
 
 
         return (
-            <div>
+            <Container>
                 {recipeList}
-            </div>
+            </Container>
 
         );
     }

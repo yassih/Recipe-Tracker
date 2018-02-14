@@ -7,21 +7,21 @@ import styled from 'styled-components';
 // }
 
 const Form = styled.form`
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
     margin: auto;
-    background-color: #355384;
-    opacity: 0.8;
-    border: 1px solid #224377;
-    height: 500px;
-    width: 400px;
+    height: 600px;
+    width: 500px;
+    margin: auto;
+    display: flex;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: #A9A9A9;
 `;
 
 const FormHeader = styled.h2`
     font-weight: 900;
-    color: #fff;
     height: 50px;
     display: flex;
     align-self: center;
@@ -36,7 +36,6 @@ const FormField = styled.div`
 `;
 
 const Input = styled.input`
-    color: #224377;
     height: 45px;
     width: 95%;
     text-align: left;
@@ -45,36 +44,50 @@ const Input = styled.input`
     display: block;
 `;
 
+const TextareaInput = styled.textarea`
+    height: 45px;
+    width: 95%;
+    text-align: left;
+    line-height : 20px;
+    margin: 5px 0px; 
+    display: block;
+`;
+
 const Label = styled.label`
-    color: #fff;
     text-align: left;
     font-family: 'Roboto',sans-serif;
 `;
 
 const Button = styled.input`
-    width: 50%;    
+    width: 20px;    
     height: 50px;
-    color: #fff;
     border: thin solid #fff;
     background-color: #224377;
     align-self: center;
     margin-top: 20px;
 `;
 
-export class AddRecipe extends React.Component<RouteComponentProps<{}>, {title : string ,instructions: string,  error : string}> {
+export class AddRecipe extends React.Component<RouteComponentProps<{}>, {title : string ,ingridient: string ,instructions: string,  error : string}> {
     constructor() {
         super();
-        this.state = { title: '' , instructions:'' , error: ''};
+        this.state = { title: '' , ingridient: '', instructions:'' , error: ''};
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleInstructionsChange = this.handleInstructionsChange.bind(this);
+        this.handleIngredientChange= this.handleIngredientChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.addRecipe = this.addRecipe.bind(this);
+        this.addIngredient = this.addIngredient.bind(this);
     }
 
     handleTitleChange(event: any) {
         this.setState({ title: event.target.value });
     }
+
+    handleIngredientChange(event: any){
+        this.setState({ ingridient: event.target.value });
+    }
+
     handleInstructionsChange(event: any){
         this.setState({ instructions: event.target.value});
     }
@@ -82,6 +95,11 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, {title :
     handleSubmit(event: any) {
         alert('A name was submitted: ' + this.state.title);
         event.preventDefault();
+    }
+
+
+    private addIngredient(): void {
+        alert(`added ${this.state.ingridient}`)
     }
 
     private addRecipe(): void {
@@ -127,14 +145,19 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, {title :
                 </FormField>
                 <FormField>
                     <Label>Recipe Ingredients:</Label>
-                    <Input />
+                    <Input 
+                        value= {this.state.ingridient}
+                        onChange= {this.handleIngredientChange}
+                    />
+                    <input type='button' onClick={this.addIngredient} value='Add Ingredient' />
                 </FormField>
                 <FormField>
                     <Label>Recipe Instruction:</Label>
-                    <Input 
+                    <TextareaInput 
                         id="recipe_instructions"
                         value= {this.state.instructions}
                         onChange={this.handleInstructionsChange}
+                        rows = {5}
                     />
                 </FormField>
                 <input type='button' onClick={this.addRecipe} value='Add Recipe' />

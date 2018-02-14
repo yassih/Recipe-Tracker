@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c17356de379ccdf28db3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "014eea44a0ad00542213"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -911,7 +911,7 @@ module.exports = baseGetTag;
 /***/ (function(module, exports, __webpack_require__) {
 
 var isFunction = __webpack_require__(55),
-    isLength = __webpack_require__(29);
+    isLength = __webpack_require__(30);
 
 /**
  * Checks if `value` is array-like. A value is considered array-like if it's
@@ -1240,7 +1240,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(process, module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Layout__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Home__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_FetchData__ = __webpack_require__(187);
@@ -1272,263 +1272,6 @@ var routes = __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPO
 
 /***/ }),
 /* 21 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(5))(101);
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getNative = __webpack_require__(6),
-    root = __webpack_require__(3);
-
-/* Built-in method references that are verified to be native. */
-var Map = getNative(root, 'Map');
-
-module.exports = Map;
-
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var mapCacheClear = __webpack_require__(132),
-    mapCacheDelete = __webpack_require__(133),
-    mapCacheGet = __webpack_require__(134),
-    mapCacheHas = __webpack_require__(135),
-    mapCacheSet = __webpack_require__(136);
-
-/**
- * Creates a map cache object to store key-value pairs.
- *
- * @private
- * @constructor
- * @param {Array} [entries] The key-value pairs to cache.
- */
-function MapCache(entries) {
-  var index = -1,
-      length = entries == null ? 0 : entries.length;
-
-  this.clear();
-  while (++index < length) {
-    var entry = entries[index];
-    this.set(entry[0], entry[1]);
-  }
-}
-
-// Add methods to `MapCache`.
-MapCache.prototype.clear = mapCacheClear;
-MapCache.prototype['delete'] = mapCacheDelete;
-MapCache.prototype.get = mapCacheGet;
-MapCache.prototype.has = mapCacheHas;
-MapCache.prototype.set = mapCacheSet;
-
-module.exports = MapCache;
-
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports) {
-
-/** Used as references for various `Number` constants. */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/** Used to detect unsigned integer values. */
-var reIsUint = /^(?:0|[1-9]\d*)$/;
-
-/**
- * Checks if `value` is a valid array-like index.
- *
- * @private
- * @param {*} value The value to check.
- * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
- * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
- */
-function isIndex(value, length) {
-  length = length == null ? MAX_SAFE_INTEGER : length;
-  return !!length &&
-    (typeof value == 'number' || reIsUint.test(value)) &&
-    (value > -1 && value % 1 == 0 && value < length);
-}
-
-module.exports = isIndex;
-
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isArray = __webpack_require__(4),
-    isSymbol = __webpack_require__(18);
-
-/** Used to match property names within property paths. */
-var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
-    reIsPlainProp = /^\w*$/;
-
-/**
- * Checks if `value` is a property name and not a property path.
- *
- * @private
- * @param {*} value The value to check.
- * @param {Object} [object] The object to query keys on.
- * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
- */
-function isKey(value, object) {
-  if (isArray(value)) {
-    return false;
-  }
-  var type = typeof value;
-  if (type == 'number' || type == 'symbol' || type == 'boolean' ||
-      value == null || isSymbol(value)) {
-    return true;
-  }
-  return reIsPlainProp.test(value) || !reIsDeepProp.test(value) ||
-    (object != null && value in Object(object));
-}
-
-module.exports = isKey;
-
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports) {
-
-/**
- * This method returns the first argument it receives.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Util
- * @param {*} value Any value.
- * @returns {*} Returns `value`.
- * @example
- *
- * var object = { 'a': 1 };
- *
- * console.log(_.identity(object) === object);
- * // => true
- */
-function identity(value) {
-  return value;
-}
-
-module.exports = identity;
-
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseIsArguments = __webpack_require__(91),
-    isObjectLike = __webpack_require__(7);
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Built-in value references. */
-var propertyIsEnumerable = objectProto.propertyIsEnumerable;
-
-/**
- * Checks if `value` is likely an `arguments` object.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an `arguments` object,
- *  else `false`.
- * @example
- *
- * _.isArguments(function() { return arguments; }());
- * // => true
- *
- * _.isArguments([1, 2, 3]);
- * // => false
- */
-var isArguments = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
-  return isObjectLike(value) && hasOwnProperty.call(value, 'callee') &&
-    !propertyIsEnumerable.call(value, 'callee');
-};
-
-module.exports = isArguments;
-
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports) {
-
-/** Used as references for various `Number` constants. */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This method is loosely based on
- * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- * @example
- *
- * _.isLength(3);
- * // => true
- *
- * _.isLength(Number.MIN_VALUE);
- * // => false
- *
- * _.isLength(Infinity);
- * // => false
- *
- * _.isLength('3');
- * // => false
- */
-function isLength(value) {
-  return typeof value == 'number' &&
-    value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-module.exports = isLength;
-
-
-/***/ }),
-/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3619,6 +3362,263 @@ var styled = _styled(StyledComponent, constructWithOptions);
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(5))(101);
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getNative = __webpack_require__(6),
+    root = __webpack_require__(3);
+
+/* Built-in method references that are verified to be native. */
+var Map = getNative(root, 'Map');
+
+module.exports = Map;
+
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var mapCacheClear = __webpack_require__(132),
+    mapCacheDelete = __webpack_require__(133),
+    mapCacheGet = __webpack_require__(134),
+    mapCacheHas = __webpack_require__(135),
+    mapCacheSet = __webpack_require__(136);
+
+/**
+ * Creates a map cache object to store key-value pairs.
+ *
+ * @private
+ * @constructor
+ * @param {Array} [entries] The key-value pairs to cache.
+ */
+function MapCache(entries) {
+  var index = -1,
+      length = entries == null ? 0 : entries.length;
+
+  this.clear();
+  while (++index < length) {
+    var entry = entries[index];
+    this.set(entry[0], entry[1]);
+  }
+}
+
+// Add methods to `MapCache`.
+MapCache.prototype.clear = mapCacheClear;
+MapCache.prototype['delete'] = mapCacheDelete;
+MapCache.prototype.get = mapCacheGet;
+MapCache.prototype.has = mapCacheHas;
+MapCache.prototype.set = mapCacheSet;
+
+module.exports = MapCache;
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports) {
+
+/** Used as references for various `Number` constants. */
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/** Used to detect unsigned integer values. */
+var reIsUint = /^(?:0|[1-9]\d*)$/;
+
+/**
+ * Checks if `value` is a valid array-like index.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+ * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+ */
+function isIndex(value, length) {
+  length = length == null ? MAX_SAFE_INTEGER : length;
+  return !!length &&
+    (typeof value == 'number' || reIsUint.test(value)) &&
+    (value > -1 && value % 1 == 0 && value < length);
+}
+
+module.exports = isIndex;
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isArray = __webpack_require__(4),
+    isSymbol = __webpack_require__(18);
+
+/** Used to match property names within property paths. */
+var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
+    reIsPlainProp = /^\w*$/;
+
+/**
+ * Checks if `value` is a property name and not a property path.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @param {Object} [object] The object to query keys on.
+ * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
+ */
+function isKey(value, object) {
+  if (isArray(value)) {
+    return false;
+  }
+  var type = typeof value;
+  if (type == 'number' || type == 'symbol' || type == 'boolean' ||
+      value == null || isSymbol(value)) {
+    return true;
+  }
+  return reIsPlainProp.test(value) || !reIsDeepProp.test(value) ||
+    (object != null && value in Object(object));
+}
+
+module.exports = isKey;
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+/**
+ * This method returns the first argument it receives.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Util
+ * @param {*} value Any value.
+ * @returns {*} Returns `value`.
+ * @example
+ *
+ * var object = { 'a': 1 };
+ *
+ * console.log(_.identity(object) === object);
+ * // => true
+ */
+function identity(value) {
+  return value;
+}
+
+module.exports = identity;
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseIsArguments = __webpack_require__(91),
+    isObjectLike = __webpack_require__(7);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Built-in value references. */
+var propertyIsEnumerable = objectProto.propertyIsEnumerable;
+
+/**
+ * Checks if `value` is likely an `arguments` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ *  else `false`.
+ * @example
+ *
+ * _.isArguments(function() { return arguments; }());
+ * // => true
+ *
+ * _.isArguments([1, 2, 3]);
+ * // => false
+ */
+var isArguments = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
+  return isObjectLike(value) && hasOwnProperty.call(value, 'callee') &&
+    !propertyIsEnumerable.call(value, 'callee');
+};
+
+module.exports = isArguments;
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+/** Used as references for various `Number` constants. */
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/**
+ * Checks if `value` is a valid array-like length.
+ *
+ * **Note:** This method is loosely based on
+ * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+ * @example
+ *
+ * _.isLength(3);
+ * // => true
+ *
+ * _.isLength(Number.MIN_VALUE);
+ * // => false
+ *
+ * _.isLength(Infinity);
+ * // => false
+ *
+ * _.isLength('3');
+ * // => false
+ */
+function isLength(value) {
+  return typeof value == 'number' &&
+    value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+}
+
+module.exports = isLength;
+
+
+/***/ }),
 /* 31 */
 /***/ (function(module, exports) {
 
@@ -3846,7 +3846,7 @@ module.exports = Html5Entities;
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var MapCache = __webpack_require__(24),
+var MapCache = __webpack_require__(25),
     setCacheAdd = __webpack_require__(144),
     setCacheHas = __webpack_require__(145);
 
@@ -4126,7 +4126,7 @@ module.exports = baseIsEqual;
 
 var baseMatches = __webpack_require__(98),
     baseMatchesProperty = __webpack_require__(99),
-    identity = __webpack_require__(27),
+    identity = __webpack_require__(28),
     isArray = __webpack_require__(4),
     property = __webpack_require__(165);
 
@@ -4161,7 +4161,7 @@ module.exports = baseIteratee;
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var identity = __webpack_require__(27),
+var identity = __webpack_require__(28),
     overRest = __webpack_require__(143),
     setToString = __webpack_require__(147);
 
@@ -4224,7 +4224,7 @@ module.exports = cacheHas;
 /***/ (function(module, exports, __webpack_require__) {
 
 var isArray = __webpack_require__(4),
-    isKey = __webpack_require__(26),
+    isKey = __webpack_require__(27),
     stringToPath = __webpack_require__(155),
     toString = __webpack_require__(171);
 
@@ -4361,7 +4361,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 
 module.exports = freeGlobal;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)))
 
 /***/ }),
 /* 50 */
@@ -4655,7 +4655,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_hot_loader__ = __webpack_require__(176);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_hot_loader___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_hot_loader__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes__ = __webpack_require__(20);
 // import './css/site.css';
 // import 'bootstrap';
@@ -5391,7 +5391,7 @@ if (typeof window !== "undefined") {
 
 module.exports = win;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)))
 
 /***/ }),
 /* 69 */
@@ -5998,10 +5998,10 @@ module.exports = arrayIncludesWith;
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseTimes = __webpack_require__(103),
-    isArguments = __webpack_require__(28),
+    isArguments = __webpack_require__(29),
     isArray = __webpack_require__(4),
     isBuffer = __webpack_require__(54),
-    isIndex = __webpack_require__(25),
+    isIndex = __webpack_require__(26),
     isTypedArray = __webpack_require__(56);
 
 /** Used for built-in method references. */
@@ -6522,7 +6522,7 @@ module.exports = baseIsNative;
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseGetTag = __webpack_require__(9),
-    isLength = __webpack_require__(29),
+    isLength = __webpack_require__(30),
     isObjectLike = __webpack_require__(7);
 
 /** `Object#toString` result references. */
@@ -6654,7 +6654,7 @@ module.exports = baseMatches;
 var baseIsEqual = __webpack_require__(41),
     get = __webpack_require__(161),
     hasIn = __webpack_require__(162),
-    isKey = __webpack_require__(26),
+    isKey = __webpack_require__(27),
     isStrictComparable = __webpack_require__(51),
     matchesStrictComparable = __webpack_require__(52),
     toKey = __webpack_require__(16);
@@ -6734,7 +6734,7 @@ module.exports = basePropertyDeep;
 
 var constant = __webpack_require__(157),
     defineProperty = __webpack_require__(47),
-    identity = __webpack_require__(27);
+    identity = __webpack_require__(28);
 
 /**
  * The base implementation of `setToString` without support for hot loop shorting.
@@ -7315,7 +7315,7 @@ module.exports = getSymbols;
 /***/ (function(module, exports, __webpack_require__) {
 
 var DataView = __webpack_require__(74),
-    Map = __webpack_require__(23),
+    Map = __webpack_require__(24),
     Promise = __webpack_require__(76),
     Set = __webpack_require__(77),
     WeakMap = __webpack_require__(79),
@@ -7398,10 +7398,10 @@ module.exports = getValue;
 /***/ (function(module, exports, __webpack_require__) {
 
 var castPath = __webpack_require__(46),
-    isArguments = __webpack_require__(28),
+    isArguments = __webpack_require__(29),
     isArray = __webpack_require__(4),
-    isIndex = __webpack_require__(25),
-    isLength = __webpack_require__(29),
+    isIndex = __webpack_require__(26),
+    isLength = __webpack_require__(30),
     toKey = __webpack_require__(16);
 
 /**
@@ -7581,7 +7581,7 @@ module.exports = hashSet;
 /***/ (function(module, exports, __webpack_require__) {
 
 var Symbol = __webpack_require__(8),
-    isArguments = __webpack_require__(28),
+    isArguments = __webpack_require__(29),
     isArray = __webpack_require__(4);
 
 /** Built-in value references. */
@@ -7608,7 +7608,7 @@ module.exports = isFlattenable;
 
 var eq = __webpack_require__(17),
     isArrayLike = __webpack_require__(10),
-    isIndex = __webpack_require__(25),
+    isIndex = __webpack_require__(26),
     isObject = __webpack_require__(11);
 
 /**
@@ -7830,7 +7830,7 @@ module.exports = listCacheSet;
 
 var Hash = __webpack_require__(75),
     ListCache = __webpack_require__(12),
-    Map = __webpack_require__(23);
+    Map = __webpack_require__(24);
 
 /**
  * Removes all key-value entries from the map.
@@ -8357,8 +8357,8 @@ module.exports = stackHas;
 /***/ (function(module, exports, __webpack_require__) {
 
 var ListCache = __webpack_require__(12),
-    Map = __webpack_require__(23),
-    MapCache = __webpack_require__(24);
+    Map = __webpack_require__(24),
+    MapCache = __webpack_require__(25);
 
 /** Used as the size to enable large array optimizations. */
 var LARGE_ARRAY_SIZE = 200;
@@ -8821,7 +8821,7 @@ module.exports = isArrayLikeObject;
 /* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var MapCache = __webpack_require__(24);
+var MapCache = __webpack_require__(25);
 
 /** Error message constants. */
 var FUNC_ERROR_TEXT = 'Expected a function';
@@ -8902,7 +8902,7 @@ module.exports = memoize;
 
 var baseProperty = __webpack_require__(100),
     basePropertyDeep = __webpack_require__(101),
-    isKey = __webpack_require__(26),
+    isKey = __webpack_require__(27),
     toKey = __webpack_require__(16);
 
 /**
@@ -9842,7 +9842,7 @@ if (!module.hot || process.env.NODE_ENV === 'production') {
 /* WEBPACK VAR INJECTION */(function(process, module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddRecipe; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__(21);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -9858,25 +9858,31 @@ var __extends = (this && this.__extends) || (function () {
 // interface CounterState {
 //     currentCount: number;
 // }
-var Form = (_a = ["\n    margin: auto;\n    background-color: #355384;\n    opacity: 0.8;\n    border: 1px solid #224377;\n    height: 500px;\n    width: 400px;\n    margin-top: 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n"], _a.raw = ["\n    margin: auto;\n    background-color: #355384;\n    opacity: 0.8;\n    border: 1px solid #224377;\n    height: 500px;\n    width: 400px;\n    margin-top: 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].form(_a));
-var FormHeader = (_b = ["\n    font-weight: 900;\n    color: #fff;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 50%;\n"], _b.raw = ["\n    font-weight: 900;\n    color: #fff;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 50%;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].h2(_b));
+var Form = (_a = ["\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    \n    margin: auto;\n    height: 600px;\n    width: 500px;\n    margin: auto;\n    display: flex;\n    margin-top: 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    color: #A9A9A9;\n"], _a.raw = ["\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    \n    margin: auto;\n    height: 600px;\n    width: 500px;\n    margin: auto;\n    display: flex;\n    margin-top: 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    color: #A9A9A9;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].form(_a));
+var FormHeader = (_b = ["\n    font-weight: 900;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 50%;\n"], _b.raw = ["\n    font-weight: 900;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 50%;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].h2(_b));
 var FormField = (_c = ["\n    width: 100%;\n    margin: 5px 10px;\n"], _c.raw = ["\n    width: 100%;\n    margin: 5px 10px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_c));
-var Input = (_d = ["\n    color: #224377;\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 42px;\n    margin: 5px 0px; \n    display: block;\n"], _d.raw = ["\n    color: #224377;\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 42px;\n    margin: 5px 0px; \n    display: block;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_d));
-var Label = (_e = ["\n    color: #fff;\n    text-align: left;\n    font-family: 'Roboto',sans-serif;\n"], _e.raw = ["\n    color: #fff;\n    text-align: left;\n    font-family: 'Roboto',sans-serif;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].label(_e));
-var Button = (_f = ["\n    width: 50%;    \n    height: 50px;\n    color: #fff;\n    border: thin solid #fff;\n    background-color: #224377;\n    align-self: center;\n    margin-top: 20px;\n"], _f.raw = ["\n    width: 50%;    \n    height: 50px;\n    color: #fff;\n    border: thin solid #fff;\n    background-color: #224377;\n    align-self: center;\n    margin-top: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_f));
+var Input = (_d = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 42px;\n    margin: 5px 0px; \n    display: block;\n"], _d.raw = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 42px;\n    margin: 5px 0px; \n    display: block;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_d));
+var TextareaInput = (_e = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 20px;\n    margin: 5px 0px; \n    display: block;\n"], _e.raw = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 20px;\n    margin: 5px 0px; \n    display: block;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].textarea(_e));
+var Label = (_f = ["\n    text-align: left;\n    font-family: 'Roboto',sans-serif;\n"], _f.raw = ["\n    text-align: left;\n    font-family: 'Roboto',sans-serif;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].label(_f));
+var Button = (_g = ["\n    width: 20px;    \n    height: 50px;\n    border: thin solid #fff;\n    background-color: #224377;\n    align-self: center;\n    margin-top: 20px;\n"], _g.raw = ["\n    width: 20px;    \n    height: 50px;\n    border: thin solid #fff;\n    background-color: #224377;\n    align-self: center;\n    margin-top: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_g));
 var AddRecipe = (function (_super) {
     __extends(AddRecipe, _super);
     function AddRecipe() {
         var _this = _super.call(this) || this;
-        _this.state = { title: '', instructions: '', error: '' };
+        _this.state = { title: '', ingridient: '', instructions: '', error: '' };
         _this.handleTitleChange = _this.handleTitleChange.bind(_this);
         _this.handleInstructionsChange = _this.handleInstructionsChange.bind(_this);
+        _this.handleIngredientChange = _this.handleIngredientChange.bind(_this);
         _this.handleSubmit = _this.handleSubmit.bind(_this);
         _this.addRecipe = _this.addRecipe.bind(_this);
+        _this.addIngredient = _this.addIngredient.bind(_this);
         return _this;
     }
     AddRecipe.prototype.handleTitleChange = function (event) {
         this.setState({ title: event.target.value });
+    };
+    AddRecipe.prototype.handleIngredientChange = function (event) {
+        this.setState({ ingridient: event.target.value });
     };
     AddRecipe.prototype.handleInstructionsChange = function (event) {
         this.setState({ instructions: event.target.value });
@@ -9884,6 +9890,9 @@ var AddRecipe = (function (_super) {
     AddRecipe.prototype.handleSubmit = function (event) {
         alert('A name was submitted: ' + this.state.title);
         event.preventDefault();
+    };
+    AddRecipe.prototype.addIngredient = function () {
+        alert("added " + this.state.ingridient);
     };
     AddRecipe.prototype.addRecipe = function () {
         var _this = this;
@@ -9917,16 +9926,17 @@ var AddRecipe = (function (_super) {
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("label", null, this.state.error)),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Ingredients:"),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, null)),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, { value: this.state.ingridient, onChange: this.handleIngredientChange }),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: 'button', onClick: this.addIngredient, value: 'Add Ingredient' })),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Instruction:"),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, { id: "recipe_instructions", value: this.state.instructions, onChange: this.handleInstructionsChange })),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](TextareaInput, { id: "recipe_instructions", value: this.state.instructions, onChange: this.handleInstructionsChange, rows: 5 })),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: 'button', onClick: this.addRecipe, value: 'Add Recipe' })));
     };
     return AddRecipe;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));
 
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g;
 
 
  ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/AddRecipe.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/AddRecipe.tsx"); } } })();
@@ -10185,7 +10195,8 @@ var Layout = (function (_super) {
 /* WEBPACK VAR INJECTION */(function(process, module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListRecipes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__RecipeCard__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__RecipeCard__ = __webpack_require__(192);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -10198,6 +10209,8 @@ var __extends = (this && this.__extends) || (function () {
 })();
 
 
+
+var Container = (_a = ["\n    width: 80%;\n    margin: auto;\n    display: flex;\n    flex-wrap: wrap;\n    flex-direction: row;\n    justify-content: center;\n"], _a.raw = ["\n    width: 80%;\n    margin: auto;\n    display: flex;\n    flex-wrap: wrap;\n    flex-direction: row;\n    justify-content: center;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_a));
 var ListRecipes = (function (_super) {
     __extends(ListRecipes, _super);
     function ListRecipes() {
@@ -10231,17 +10244,20 @@ var ListRecipes = (function (_super) {
         var recipeList = [];
         if (this.state.recipesSource.length > 0) {
             this.state.recipesSource.forEach(function (recipe) {
-                recipeList.push(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1__RecipeCard__["a" /* default */], { key: recipe.id, title: recipe.title }));
+                console.log('printing id');
+                console.log(recipe.id);
+                recipeList.push(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2__RecipeCard__["a" /* default */], { key: recipe.id, title: recipe.title, recipeId: recipe.id, image: recipe.image }));
             });
         }
         else {
             recipeList.push(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null, "No Recipe Available"));
         }
-        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null, recipeList));
+        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Container, null, recipeList));
     };
     return ListRecipes;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));
 
+var _a;
 
 
  ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/ListRecipes.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/ListRecipes.tsx"); } } })();
@@ -10255,7 +10271,7 @@ var ListRecipes = (function (_super) {
 /* WEBPACK VAR INJECTION */(function(process, module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavMenu; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(23);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -10322,21 +10338,24 @@ var NavMenu = (function (_super) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process, module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(23);
 
 
 
-var Card = (_a = ["\n    width: 350px;\n    height: 250px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    text-align: center;\n    margin: 10px;\n    float: left;\n"], _a.raw = ["\n    width: 350px;\n    height: 250px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    text-align: center;\n    margin: 10px;\n    float: left;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_a));
+var Card = (_a = ["\n    min-width: 350px;\n    height: 250px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    text-align: center;\n    flex-wrap: wrap;\n    margin: 10px;\n    float: left;\n"], _a.raw = ["\n    min-width: 350px;\n    height: 250px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    text-align: center;\n    flex-wrap: wrap;\n    margin: 10px;\n    float: left;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_a));
 var Image = (_b = ["\n    padding: 10px;\n"], _b.raw = ["\n    padding: 10px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_b));
 var Title = (_c = ["\n    color: #ff4411; \n    font-size: 24px; \n    font-family: 'Signika', sans-serif; \n    padding-bottom: 5px;  \n"], _c.raw = ["\n    color: #ff4411; \n    font-size: 24px; \n    font-family: 'Signika', sans-serif; \n    padding-bottom: 5px;  \n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_c));
 var RecipeCard = function (props) {
+    console.log('recipe card props');
+    console.log(props);
     //let title = props.title;
     //const { children } = this.props; ask brad why this is not working
     return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Card, null,
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Image, null),
         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Title, null,
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Link"], { to: "/recipedetails/" + props.key }, props.title))));
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Link"], { to: "/recipedetails/" + props.recipeId }, props.title)),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Image, null,
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { src: props.image, height: 200, width: 350 }))));
 };
 /* harmony default export */ __webpack_exports__["a"] = (RecipeCard);
 var _a, _b, _c;
@@ -10353,7 +10372,7 @@ var _a, _b, _c;
 /* WEBPACK VAR INJECTION */(function(process, module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecipeDetails; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__(21);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -10366,7 +10385,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 
 
-var DetailBox = (_a = ["\nborder: 2px solid green;\nmargin: 20px;\npadding: 20px;\n"], _a.raw = ["\nborder: 2px solid green;\nmargin: 20px;\npadding: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_a));
+var DetailCard = (_a = ["\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    text-align: center;\n    display: flex;\n"], _a.raw = ["\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    text-align: center;\n    display: flex;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_a));
+var Image = (_b = ["\n    width: 400px;\n"], _b.raw = ["\n    width: 400px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_b));
+var Details = (_c = ["\n    width: 400px;\n"], _c.raw = ["\n    width: 400px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_c));
+var Title = (_d = ["\n    color: #c9d0d4; \n    font-family: 'Helvetica Neue', sans-serif; \n    font-size: 46px; \n    font-weight: 100; \n    line-height: 50px; \n    letter-spacing: 1px; \n    padding: 0 0 40px; \n    border-bottom: double #555; \n    padding-top: 20px;\n"], _d.raw = ["\n    color: #c9d0d4; \n    font-family: 'Helvetica Neue', sans-serif; \n    font-size: 46px; \n    font-weight: 100; \n    line-height: 50px; \n    letter-spacing: 1px; \n    padding: 0 0 40px; \n    border-bottom: double #555; \n    padding-top: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_d));
+var Ingredients = (_e = [""], _e.raw = [""], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_e));
+var Instructions = (_f = ["\n    font-family: 'Helvetica Neue', sans-serif; \n    font-size: 12px;\n"], _f.raw = ["\n    font-family: 'Helvetica Neue', sans-serif; \n    font-size: 12px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_f));
 var RecipeDetails = (function (_super) {
     __extends(RecipeDetails, _super);
     function RecipeDetails() {
@@ -10376,6 +10400,8 @@ var RecipeDetails = (function (_super) {
         return _this;
     }
     RecipeDetails.prototype.componentDidMount = function () {
+        console.log('props:');
+        console.log(this.props);
         this.getRecipe(this.props.match.params.id);
     };
     RecipeDetails.prototype.getRecipe = function (id) {
@@ -10397,16 +10423,20 @@ var RecipeDetails = (function (_super) {
                 ingridientsList.push(__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("li", null, ingredient.name));
             });
         }
-        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](DetailBox, null, this.state.recipe.title),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](DetailBox, null, this.state.recipe.instructions),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("ul", null, ingridientsList)));
+        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](DetailCard, null,
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Image, null,
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { src: this.state.recipe.image, height: 600, width: 400 })),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Details, null,
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Title, null, this.state.recipe.title),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Ingredients, null),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Instructions, null, this.state.recipe.instructions),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("ul", null, ingridientsList))));
     };
     ;
     return RecipeDetails;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));
 
-var _a;
+var _a, _b, _c, _d, _e, _f;
 
 
  ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/RecipeDetail.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/RecipeDetail.tsx"); } } })();
@@ -11733,7 +11763,7 @@ exports.__Rewire__ = _set__;
 exports.__set__ = _set__;
 exports.__ResetDependency__ = _reset__;
 exports.__RewireAPI__ = _RewireAPI__;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)))
 
 /***/ }),
 /* 200 */
@@ -12026,7 +12056,7 @@ exports.__set__ = _set__;
 exports.__ResetDependency__ = _reset__;
 exports.__RewireAPI__ = _RewireAPI__;
 exports.default = _RewireAPI__;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)))
 
 /***/ }),
 /* 201 */

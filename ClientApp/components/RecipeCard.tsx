@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 
 
 const Card = styled.div`
-    width: 350px;
+    min-width: 350px;
     height: 250px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
+    flex-wrap: wrap;
     margin: 10px;
     float: left;
 `;
@@ -24,17 +25,24 @@ const Title = styled.div`
 `;
 
 const RecipeCard = (props: any) => {
+    console.log('recipe card props');
+    console.log(props);
 
     //let title = props.title;
     //const { children } = this.props; ask brad why this is not working
 
     return(
     <Card>
-        <Image>
-        </Image>
         <Title>
-            <Link to={`/recipedetails/${props.key}`}>{props.title}</Link>
+            <Link to={`/recipedetails/${props.recipeId}`}>{props.title}</Link>
         </Title>
+        <Image>
+            <img 
+            src={props.image}
+            height= {200}
+            width = {350}
+            />
+        </Image>
     </Card>
     )
   }
