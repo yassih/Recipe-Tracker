@@ -8,7 +8,8 @@ import styled from 'styled-components';
 
 const Outer: any = styled.div`
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    height: 700px;
+    padding-top: 20px;
+    height: 660px;
     width: 900px;
     margin: auto;
     color: #808080;
@@ -24,7 +25,7 @@ const Image: any = styled.div`
 `;
 
 const Form: any = styled.form`
-    height: 600px;
+    height: 598px;
     width: 400px;
     justify-content: center;
     background-color: #fff;
@@ -44,12 +45,12 @@ const FormHeader: any = styled.h2`
 
 const FormField: any = styled.div`
     width: 100%;
-    margin: 5px 10px;
+    padding: 5px 10px;
 `;
 
 const Input: any = styled.input`
-    height: 45px;
-    width: 95%;
+    height: 35px;
+    width: 100%;
     text-align: left;
     line-height : 42px;
     margin: 5px 0px;
@@ -60,7 +61,6 @@ const TextareaInput: any = styled.textarea`
     height: 45px;
     width: 95%;
     text-align: left;
-    line-height : 20px;
     margin: 5px 0px;
     display: block;
 `;
@@ -152,12 +152,12 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, {title :
                         </FormHeader>
                         <FormField>
                             <Label>Recipe Name:</Label>
+                            <label>{this.state.error}</label>
                             <Input
                                 id="recipe_name"
                                 value={this.state.title}
                                 onChange={this.handleTitleChange}
                             />
-                            <label>{this.state.error}</label>
                         </FormField>
                         <FormField>
                             <Label>Recipe Ingredients:</Label>
