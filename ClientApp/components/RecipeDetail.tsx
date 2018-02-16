@@ -2,7 +2,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import styled from 'styled-components';
 
-const DetailCard = styled.div`
+const DetailCard: any = styled.div`
     height: 600px;
     width: 800px;
     margin: auto;
@@ -10,36 +10,36 @@ const DetailCard = styled.div`
     text-align: center;
     display: flex;
 `;
-const Image = styled.div`
+const Image: any = styled.div`
     width: 400px;
 `;
-const Details = styled.div`
+const Details: any = styled.div`
     width: 400px;
 `;
 
-const Title = styled.div`
-    color: #c9d0d4; 
-    font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 46px; 
-    font-weight: 100; 
-    line-height: 50px; 
-    letter-spacing: 1px; 
-    padding: 0 0 40px; 
-    border-bottom: double #555; 
+const Title: any = styled.div`
+    color: #c9d0d4;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 46px;
+    font-weight: 100;
+    line-height: 50px;
+    letter-spacing: 1px;
+    padding: 0 0 40px;
+    border-bottom: double #555;
     padding-top: 20px;
 `;
 
-const Ingredients = styled.div``;
+const Ingredients: any = styled.div``;
 
-const Instructions = styled.div`
-    font-family: 'Helvetica Neue', sans-serif; 
+const Instructions: any = styled.div`
+    font-family: 'Helvetica Neue', sans-serif;
     font-size: 12px;
 `;
 
 export class RecipeDetails extends React.Component<RouteComponentProps<{id: any}>,{recipe : any}>{
 
-    constructor(){
-       super(); 
+    constructor() {
+       super();
        this.state = { recipe: {}}
        this.getRecipe = this.getRecipe.bind(this);
     }

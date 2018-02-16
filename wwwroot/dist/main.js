@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "014eea44a0ad00542213"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cc29887b4d8fd4849fbe"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1267,7 +1267,7 @@ var routes = __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPO
     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Route"], { path: '/recipedetails/:id', component: __WEBPACK_IMPORTED_MODULE_8__components_RecipeDetail__["a" /* RecipeDetails */] }));
 
 
- ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/routes.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/routes.tsx"); } } })();
+ ;(function register() { // eslint-disable-line no-extra-semi /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\routes.tsx"); return; } for (var key in module.exports) { // eslint-disable-line no-restricted-syntax if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\routes.tsx"); } } })();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),
@@ -4683,7 +4683,7 @@ if (true) {
 }
 
 
- ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/boot.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/boot.tsx"); } } })();
+ ;(function register() { // eslint-disable-line no-extra-semi /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\boot.tsx"); return; } for (var key in module.exports) { // eslint-disable-line no-restricted-syntax if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\boot.tsx"); } } })();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),
@@ -9858,13 +9858,15 @@ var __extends = (this && this.__extends) || (function () {
 // interface CounterState {
 //     currentCount: number;
 // }
-var Form = (_a = ["\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    \n    margin: auto;\n    height: 600px;\n    width: 500px;\n    margin: auto;\n    display: flex;\n    margin-top: 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    color: #A9A9A9;\n"], _a.raw = ["\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    \n    margin: auto;\n    height: 600px;\n    width: 500px;\n    margin: auto;\n    display: flex;\n    margin-top: 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    color: #A9A9A9;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].form(_a));
-var FormHeader = (_b = ["\n    font-weight: 900;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 50%;\n"], _b.raw = ["\n    font-weight: 900;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 50%;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].h2(_b));
-var FormField = (_c = ["\n    width: 100%;\n    margin: 5px 10px;\n"], _c.raw = ["\n    width: 100%;\n    margin: 5px 10px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_c));
-var Input = (_d = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 42px;\n    margin: 5px 0px; \n    display: block;\n"], _d.raw = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 42px;\n    margin: 5px 0px; \n    display: block;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_d));
-var TextareaInput = (_e = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 20px;\n    margin: 5px 0px; \n    display: block;\n"], _e.raw = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 20px;\n    margin: 5px 0px; \n    display: block;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].textarea(_e));
-var Label = (_f = ["\n    text-align: left;\n    font-family: 'Roboto',sans-serif;\n"], _f.raw = ["\n    text-align: left;\n    font-family: 'Roboto',sans-serif;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].label(_f));
-var Button = (_g = ["\n    width: 20px;    \n    height: 50px;\n    border: thin solid #fff;\n    background-color: #224377;\n    align-self: center;\n    margin-top: 20px;\n"], _g.raw = ["\n    width: 20px;    \n    height: 50px;\n    border: thin solid #fff;\n    background-color: #224377;\n    align-self: center;\n    margin-top: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_g));
+var Outer = (_a = ["\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    height: 700px;\n    width: 900px;\n    margin: auto;\n    color: #808080;\n"], _a.raw = ["\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    height: 700px;\n    width: 900px;\n    margin: auto;\n    color: #808080;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_a));
+var Image = (_b = ["\n    background-color:red;\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    background-image: url('https://images.theconversation.com/files/181712/original/file-20170810-27667-l8qew7.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1012&h=668&fit=crop');\n    border: 1px solid black;\n"], _b.raw = ["\n    background-color:red;\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    background-image: url('https://images.theconversation.com/files/181712/original/file-20170810-27667-l8qew7.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1012&h=668&fit=crop');\n    border: 1px solid black;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_b));
+var Form = (_c = ["\n    height: 600px;\n    width: 400px;\n    justify-content: center;\n    background-color: #fff;\n    opacity: 0.9;\n    float: right;\n"], _c.raw = ["\n    height: 600px;\n    width: 400px;\n    justify-content: center;\n    background-color: #fff;\n    opacity: 0.9;\n    float: right;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].form(_c));
+var FormHeader = (_d = ["\n    font-weight: 900;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 80%;\n"], _d.raw = ["\n    font-weight: 900;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 80%;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].h2(_d));
+var FormField = (_e = ["\n    width: 100%;\n    margin: 5px 10px;\n"], _e.raw = ["\n    width: 100%;\n    margin: 5px 10px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_e));
+var Input = (_f = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 42px;\n    margin: 5px 0px;\n    display: block;\n"], _f.raw = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 42px;\n    margin: 5px 0px;\n    display: block;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_f));
+var TextareaInput = (_g = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 20px;\n    margin: 5px 0px;\n    display: block;\n"], _g.raw = ["\n    height: 45px;\n    width: 95%;\n    text-align: left;\n    line-height : 20px;\n    margin: 5px 0px;\n    display: block;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].textarea(_g));
+var Label = (_h = ["\n    text-align: left;\n    font-family: 'Roboto',sans-serif;\n"], _h.raw = ["\n    text-align: left;\n    font-family: 'Roboto',sans-serif;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].label(_h));
+var Button = (_j = ["\n    width: 20px;\n    height: 50px;\n    border: thin solid #fff;\n    background-color: #224377;\n    align-self: center;\n    margin-top: 20px;\n"], _j.raw = ["\n    width: 20px;\n    height: 50px;\n    border: thin solid #fff;\n    background-color: #224377;\n    align-self: center;\n    margin-top: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_j));
 var AddRecipe = (function (_super) {
     __extends(AddRecipe, _super);
     function AddRecipe() {
@@ -9911,6 +9913,7 @@ var AddRecipe = (function (_super) {
             })
         }).then(function (res) {
             if (res.status === 200) {
+                //
             }
             else {
                 res.text().then(function (t) { return _this.setState({ error: t }); });
@@ -9918,28 +9921,30 @@ var AddRecipe = (function (_super) {
         });
     };
     AddRecipe.prototype.render = function () {
-        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Form, null,
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormHeader, null, "Recipe Card"),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Name:"),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, { id: "recipe_name", value: this.state.title, onChange: this.handleTitleChange }),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("label", null, this.state.error)),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Ingredients:"),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, { value: this.state.ingridient, onChange: this.handleIngredientChange }),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: 'button', onClick: this.addIngredient, value: 'Add Ingredient' })),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Instruction:"),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](TextareaInput, { id: "recipe_instructions", value: this.state.instructions, onChange: this.handleInstructionsChange, rows: 5 })),
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: 'button', onClick: this.addRecipe, value: 'Add Recipe' })));
+        return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Outer, null,
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Image, null,
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Form, null,
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormHeader, null, "Recipe Card"),
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Name:"),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, { id: "recipe_name", value: this.state.title, onChange: this.handleTitleChange }),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("label", null, this.state.error)),
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Ingredients:"),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, { value: this.state.ingridient, onChange: this.handleIngredientChange }),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: 'button', onClick: this.addIngredient, value: 'Add Ingredient' })),
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Instruction:"),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](TextareaInput, { id: "recipe_instructions", value: this.state.instructions, onChange: this.handleInstructionsChange, rows: 5 })),
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: 'button', onClick: this.addRecipe, value: 'Add Recipe' })))));
     };
     return AddRecipe;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));
 
-var _a, _b, _c, _d, _e, _f, _g;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
 
- ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/AddRecipe.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/AddRecipe.tsx"); } } })();
+ ;(function register() { // eslint-disable-line no-extra-semi /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\AddRecipe.tsx"); return; } for (var key in module.exports) { // eslint-disable-line no-restricted-syntax if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\AddRecipe.tsx"); } } })();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),
@@ -9988,7 +9993,7 @@ var Counter = (function (_super) {
 
 
 
- ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/Counter.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/Counter.tsx"); } } })();
+ ;(function register() { // eslint-disable-line no-extra-semi /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\Counter.tsx"); return; } for (var key in module.exports) { // eslint-disable-line no-restricted-syntax if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\Counter.tsx"); } } })();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),
@@ -10056,7 +10061,7 @@ var FetchData = (function (_super) {
 
 
 
- ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/FetchData.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/FetchData.tsx"); } } })();
+ ;(function register() { // eslint-disable-line no-extra-semi /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\FetchData.tsx"); return; } for (var key in module.exports) { // eslint-disable-line no-restricted-syntax if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\FetchData.tsx"); } } })();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),
@@ -10141,7 +10146,7 @@ var Home = (function (_super) {
 
 
 
- ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/Home.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/Home.tsx"); } } })();
+ ;(function register() { // eslint-disable-line no-extra-semi /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\Home.tsx"); return; } for (var key in module.exports) { // eslint-disable-line no-restricted-syntax if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\Home.tsx"); } } })();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),
@@ -10184,7 +10189,7 @@ var Layout = (function (_super) {
 
 
 
- ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/Layout.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/Layout.tsx"); } } })();
+ ;(function register() { // eslint-disable-line no-extra-semi /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\Layout.tsx"); return; } for (var key in module.exports) { // eslint-disable-line no-restricted-syntax if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\Layout.tsx"); } } })();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),
@@ -10260,7 +10265,7 @@ var ListRecipes = (function (_super) {
 var _a;
 
 
- ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/ListRecipes.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/ListRecipes.tsx"); } } })();
+ ;(function register() { // eslint-disable-line no-extra-semi /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\ListRecipes.tsx"); return; } for (var key in module.exports) { // eslint-disable-line no-restricted-syntax if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\ListRecipes.tsx"); } } })();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),
@@ -10328,7 +10333,7 @@ var NavMenu = (function (_super) {
 
 
 
- ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/NavMenu.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/NavMenu.tsx"); } } })();
+ ;(function register() { // eslint-disable-line no-extra-semi /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\NavMenu.tsx"); return; } for (var key in module.exports) { // eslint-disable-line no-restricted-syntax if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\NavMenu.tsx"); } } })();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),
@@ -10361,7 +10366,7 @@ var RecipeCard = function (props) {
 var _a, _b, _c;
 
 
- ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/RecipeCard.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/RecipeCard.tsx"); } } })();
+ ;(function register() { // eslint-disable-line no-extra-semi /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\RecipeCard.tsx"); return; } for (var key in module.exports) { // eslint-disable-line no-restricted-syntax if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\RecipeCard.tsx"); } } })();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),
@@ -10388,9 +10393,9 @@ var __extends = (this && this.__extends) || (function () {
 var DetailCard = (_a = ["\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    text-align: center;\n    display: flex;\n"], _a.raw = ["\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    text-align: center;\n    display: flex;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_a));
 var Image = (_b = ["\n    width: 400px;\n"], _b.raw = ["\n    width: 400px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_b));
 var Details = (_c = ["\n    width: 400px;\n"], _c.raw = ["\n    width: 400px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_c));
-var Title = (_d = ["\n    color: #c9d0d4; \n    font-family: 'Helvetica Neue', sans-serif; \n    font-size: 46px; \n    font-weight: 100; \n    line-height: 50px; \n    letter-spacing: 1px; \n    padding: 0 0 40px; \n    border-bottom: double #555; \n    padding-top: 20px;\n"], _d.raw = ["\n    color: #c9d0d4; \n    font-family: 'Helvetica Neue', sans-serif; \n    font-size: 46px; \n    font-weight: 100; \n    line-height: 50px; \n    letter-spacing: 1px; \n    padding: 0 0 40px; \n    border-bottom: double #555; \n    padding-top: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_d));
+var Title = (_d = ["\n    color: #c9d0d4;\n    font-family: 'Helvetica Neue', sans-serif;\n    font-size: 46px;\n    font-weight: 100;\n    line-height: 50px;\n    letter-spacing: 1px;\n    padding: 0 0 40px;\n    border-bottom: double #555;\n    padding-top: 20px;\n"], _d.raw = ["\n    color: #c9d0d4;\n    font-family: 'Helvetica Neue', sans-serif;\n    font-size: 46px;\n    font-weight: 100;\n    line-height: 50px;\n    letter-spacing: 1px;\n    padding: 0 0 40px;\n    border-bottom: double #555;\n    padding-top: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_d));
 var Ingredients = (_e = [""], _e.raw = [""], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_e));
-var Instructions = (_f = ["\n    font-family: 'Helvetica Neue', sans-serif; \n    font-size: 12px;\n"], _f.raw = ["\n    font-family: 'Helvetica Neue', sans-serif; \n    font-size: 12px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_f));
+var Instructions = (_f = ["\n    font-family: 'Helvetica Neue', sans-serif;\n    font-size: 12px;\n"], _f.raw = ["\n    font-family: 'Helvetica Neue', sans-serif;\n    font-size: 12px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_f));
 var RecipeDetails = (function (_super) {
     __extends(RecipeDetails, _super);
     function RecipeDetails() {
@@ -10439,7 +10444,7 @@ var RecipeDetails = (function (_super) {
 var _a, _b, _c, _d, _e, _f;
 
 
- ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "/Users/Yassi/Desktop/App/ClientApp/components/RecipeDetail.tsx"); return; } for (var key in module.exports) { if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "/Users/Yassi/Desktop/App/ClientApp/components/RecipeDetail.tsx"); } } })();
+ ;(function register() { // eslint-disable-line no-extra-semi /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } if (typeof module.exports === 'function') { __REACT_HOT_LOADER__.register(module.exports, 'module.exports', "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\RecipeDetail.tsx"); return; } for (var key in module.exports) { // eslint-disable-line no-restricted-syntax if (!Object.prototype.hasOwnProperty.call(module.exports, key)) { continue; } var namedExport = void 0; try { namedExport = module.exports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\Users\\User\\Desktop\\Recipe-Tracker\\ClientApp\\components\\RecipeDetail.tsx"); } } })();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),

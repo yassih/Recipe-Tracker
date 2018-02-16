@@ -8,3 +8,13 @@
 /Users/Yassi/Desktop/App/obj/Debug/netcoreapp2.0/App.AssemblyInfo.cs
 /Users/Yassi/Desktop/App/obj/Debug/netcoreapp2.0/App.dll
 /Users/Yassi/Desktop/App/obj/Debug/netcoreapp2.0/App.pdb
+C:\Users\User\Desktop\Recipe-Tracker\bin\Debug\netcoreapp2.0\App.deps.json
+C:\Users\User\Desktop\Recipe-Tracker\bin\Debug\netcoreapp2.0\App.runtimeconfig.json
+C:\Users\User\Desktop\Recipe-Tracker\bin\Debug\netcoreapp2.0\App.runtimeconfig.dev.json
+C:\Users\User\Desktop\Recipe-Tracker\bin\Debug\netcoreapp2.0\App.dll
+C:\Users\User\Desktop\Recipe-Tracker\bin\Debug\netcoreapp2.0\App.pdb
+C:\Users\User\Desktop\Recipe-Tracker\obj\Debug\netcoreapp2.0\App.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Recipe-Tracker\obj\Debug\netcoreapp2.0\App.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Recipe-Tracker\obj\Debug\netcoreapp2.0\App.AssemblyInfo.cs
+C:\Users\User\Desktop\Recipe-Tracker\obj\Debug\netcoreapp2.0\App.dll
+C:\Users\User\Desktop\Recipe-Tracker\obj\Debug\netcoreapp2.0\App.pdb
