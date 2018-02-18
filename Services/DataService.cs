@@ -27,9 +27,9 @@ namespace App.Services
         {
             try
             {
-                if(recipe.Title == "")
+                if(recipe.Title.Trim() == "")
                 {
-                    //throw new Exception("name cannot be empty");
+                    throw new Exception("name cannot be empty!");
                 }
                 List<Recipe> allRecipes = _dataRepository.getAllRecipes();
                 foreach (var item in allRecipes)
@@ -47,9 +47,17 @@ namespace App.Services
                 throw ex;
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("something went serriously wrong");
+                if(ex.Message == "name cannot be empty!")
+                {
+                    throw ex;
+                }
+                else
+                {
+                    throw new Exception("something went serriously wrong");
+                }
+                
             }
         }
 
