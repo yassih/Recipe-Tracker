@@ -34,6 +34,9 @@
     "webpack-hot-middleware": "2.18.2"
   },
   "dependencies": {
+    "@types/js-base64": "^2.3.1",
+    "@types/uuid": "^3.4.3",
+    "react-autobind": "^1.0.6",
     "react-fontawesome": "^1.6.1",
     "styled-components": "^3.1.4"
   }

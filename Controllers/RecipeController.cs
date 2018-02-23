@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc; //IActonresult comes from here
 using System.Diagnostics;
 using App.Models;
 using App.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace App.Controllers
 {
@@ -48,6 +49,18 @@ namespace App.Controllers
                 return BadRequest();
             }
             
+        }
+
+        public IActionResult UploadImage(IFormFile Image)
+        {
+            try 
+            {
+                return Ok();
+            }
+            catch(Exception)
+            {
+                return BadRequest();
+            }
         }
         [HttpGet("[action]")]
         public IActionResult getRecipe(string id)

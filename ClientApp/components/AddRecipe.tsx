@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import styled from 'styled-components';
-import * as Fontawesome from 'react-fontawesome';
+import Fontawesome from 'react-fontawesome';
+import { Base64 } from 'js-base64';
+
+import uuid from 'uuid/v4';
+
 
 const Outer: any = styled.div`
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -22,7 +26,7 @@ const Image: any = styled.div`
 `;
 
 const Form: any = styled.form`
-    height: 598px;
+    height: 575px;
     width: 400px;
     justify-content: center;
     background-color: #fff;
@@ -107,7 +111,7 @@ const RecipeButton: any = styled.input`
     align-self: center;
     float:right;
     margin-right: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 `;
 
 const ImageButton: any = styled.input`
@@ -130,32 +134,43 @@ interface ILocalProps {
     //
 }
 
-export class AddRecipe extends React.Component<RouteComponentProps<{}>, { title: string, imageBlob: any, ingredients: any, instructions: string, error: string }> {
+export class AddRecipe extends React.Component<RouteComponentProps<{}>, { title: string, background: string, imageBase64String: any, ingredients: any, instructions: string, error: string }> {
     constructor() {
         super();
-        this.state = { title: '', ingredients: [], instructions: '', error: '', imageBlob: null };
+
+        this.state = { title: '', ingredients: [], instructions: '', error: '', imageBase64String: null, background: ''};
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleInstructionsChange = this.handleInstructionsChange.bind(this);
-        //this.handleIngredientChange = this.handleIngredientChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.addRecipe = this.addRecipe.bind(this);
         this.addIngredient = this.addIngredient.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
-        this.updateImage = this.updateImage.bind(this);
+        //this.updateImage = this.updateImage.bind(this);
         this.handleImageChange = this.handleImageChange.bind(this);
+        this.onImageLoad = this.onImageLoad.bind(this);
     }
 
     handleImageChange(event: any): void {
-        this.setState({imageBlob: event.target.file});
+        const file: any = event.target.files[0];
+        if (file && file.type.match('image.*')) {
+            this.setState((prevState) => ({...prevState, imageBlob: file}));
+
+            const fileReader: FileReader = new FileReader();
+            fileReader.onload = this.onImageLoad;
+            fileReader.readAsDataURL(file);
+        }
+
+    }
+
+    private onImageLoad(event: any) {
+        const base64 = event.target.result;
+        this.setState((prevState) => ({ ...prevState, imageBase64String: base64 }));
     }
 
     handleTitleChange(event: any): void {
         this.setState({ title: event.target.value });
     }
-
-    // handleIngredientChange(event: any): void {
-    // }
 
     handleInstructionsChange(event: any): void {
         this.setState({ instructions: event.target.value });
@@ -173,17 +188,21 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, { title:
         event.preventDefault();
     }
 
-    updateImage(): void {
-        alert('image will come');
-        fetch('/api/Recipe/AddImage',{
-            method: 'POST',
-        //body: JSON.stringify(data),
-            headers: new Headers({
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            })
-        }).then((res:any) => {console.log(res);});
-    }
+    // updateImage(): void {
+
+    //     const form = new FormData();
+    //     form.append('file', this.state.imageBase64String);
+
+    //     alert('image will come');
+    //     fetch('/api/Recipe/AddImage',{
+    //         method: 'POST',
+    //         body: form,
+    //         headers: new Headers({
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         })
+    //     }).then((res:any) => {console.log(res);});
+    // }
 
     ingredientList: any = [];
     private addIngredient(event: any): void {
@@ -198,7 +217,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, { title:
             createDateTime: new Date(),
             Instructions: this.state.instructions,
             Title: this.state.title,
-            Ingridients: this.state.ingredients
+            Image: this.state.imageBase64String
         };
         if(data.Title == '')
         {
@@ -214,12 +233,26 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, { title:
             })
         }).then(res => {
             if (res.status === 200) {
-                //
+                ///this.uploadNewImage();
             } else {
                 res.text().then((t) => this.setState({ error: t }));
             }
         });
 
+    }
+
+    private uploadNewImage() {
+        const form = new FormData();
+        form.append('file', this.state.imageBase64String);
+
+        fetch('/api/Recipe/UploadImage',{
+            credentials: 'include',
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
+            },
+            body: form
+        });
     }
 
     public render() {
@@ -234,9 +267,9 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, { title:
 
         return (
             <Outer>
-                <Image>
-                    <input type='file' name='Select Image File' onChange={this.handleImageChange}/>
-                    <ImageButton type='submit' value='Upload Image' onClick={this.updateImage}/>
+                <Image style={{backgroundImage: "url(" + this.state.imageBase64String + ")"}}>
+                    <input type='file' name='Select Image File' onChange={this.handleImageChange} accept=".png,.jpeg,.jpg,.gif"/>
+                    {/* <ImageButton type='submit' value='Upload Image' onClick={this.updateImage}/> */}
                     <Form>
                         <FormHeader>
                             Recipe Card

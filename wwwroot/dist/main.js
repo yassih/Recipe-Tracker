@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "66e09febc6fa453e02dc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f76f6180b268fa7c1722"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10024,12 +10024,20 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 
 
 
 var Outer = (_a = ["\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    padding-top: 20px;\n    height: 660px;\n    width: 900px;\n    margin: auto;\n    color: #808080;\n"], _a.raw = ["\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    padding-top: 20px;\n    height: 660px;\n    width: 900px;\n    margin: auto;\n    color: #808080;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_a));
 var Image = (_b = ["\n    background-color:red;\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    background-image: url('https://images.theconversation.com/files/181712/original/file-20170810-27667-l8qew7.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1012&h=668&fit=crop');\n    border: 1px solid black;\n"], _b.raw = ["\n    background-color:red;\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    background-image: url('https://images.theconversation.com/files/181712/original/file-20170810-27667-l8qew7.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1012&h=668&fit=crop');\n    border: 1px solid black;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_b));
-var Form = (_c = ["\n    height: 598px;\n    width: 400px;\n    justify-content: center;\n    background-color: #fff;\n    opacity: 0.93;\n    float: right;\n"], _c.raw = ["\n    height: 598px;\n    width: 400px;\n    justify-content: center;\n    background-color: #fff;\n    opacity: 0.93;\n    float: right;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].form(_c));
+var Form = (_c = ["\n    height: 575px;\n    width: 400px;\n    justify-content: center;\n    background-color: #fff;\n    opacity: 0.93;\n    float: right;\n"], _c.raw = ["\n    height: 575px;\n    width: 400px;\n    justify-content: center;\n    background-color: #fff;\n    opacity: 0.93;\n    float: right;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].form(_c));
 var FormHeader = (_d = ["\n    font-weight: 900;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 80%;\n"], _d.raw = ["\n    font-weight: 900;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 80%;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].h2(_d));
 var FormField = (_e = ["\n    width: 100%;\n    padding: 5px 10px;\n"], _e.raw = ["\n    width: 100%;\n    padding: 5px 10px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_e));
 var InstructionFormField = (_f = ["\n    margin-top: 10px;\n    width: 100%;\n    padding: 5px 10px;\n"], _f.raw = ["\n    margin-top: 10px;\n    width: 100%;\n    padding: 5px 10px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_f));
@@ -10039,34 +10047,55 @@ var IngredientsList = (_j = ["\n    height: 80px;\n    margin: 0 15px;\n    font
 var TextareaInput = (_k = ["\n    width: 95%;\n    text-align: left;\n    display: block;\n    resize: none;\n    margin: auto;\n"], _k.raw = ["\n    width: 95%;\n    text-align: left;\n    display: block;\n    resize: none;\n    margin: auto;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].textarea(_k));
 var Label = (_l = ["\n    text-align: left;\n    font-family: 'Roboto',sans-serif;\n"], _l.raw = ["\n    text-align: left;\n    font-family: 'Roboto',sans-serif;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].label(_l));
 var Button = (_m = ["\n    width: 20px;\n    height: 50px;\n    border: thin solid #fff;\n    background-color: #224377;\n    align-self: center;\n    margin-top: 20px;\n"], _m.raw = ["\n    width: 20px;\n    height: 50px;\n    border: thin solid #fff;\n    background-color: #224377;\n    align-self: center;\n    margin-top: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_m));
-var RecipeButton = (_o = ["\n    width: 200px;\n    height: 50px;\n    border: thin solid #dddddf;\n    background-color: #fff;\n    align-self: center;\n    float:right;\n    margin-right: 10px;\n    margin-top: 20px;\n"], _o.raw = ["\n    width: 200px;\n    height: 50px;\n    border: thin solid #dddddf;\n    background-color: #fff;\n    align-self: center;\n    float:right;\n    margin-right: 10px;\n    margin-top: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_o));
+var RecipeButton = (_o = ["\n    width: 200px;\n    height: 50px;\n    border: thin solid #dddddf;\n    background-color: #fff;\n    align-self: center;\n    float:right;\n    margin-right: 10px;\n    margin-top: 10px;\n"], _o.raw = ["\n    width: 200px;\n    height: 50px;\n    border: thin solid #dddddf;\n    background-color: #fff;\n    align-self: center;\n    float:right;\n    margin-right: 10px;\n    margin-top: 10px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_o));
 var ImageButton = (_p = ["\n    width: 200px;\n    height: 50px;\n    border: thin solid #dddddf;\n    background-color: #fff;\n    align-self: center;\n    margin-left: 10px;\n    margin-top: 20px;\n"], _p.raw = ["\n    width: 200px;\n    height: 50px;\n    border: thin solid #dddddf;\n    background-color: #fff;\n    align-self: center;\n    margin-left: 10px;\n    margin-top: 20px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_p));
 var Error = (_q = ["\n    color: red;\n    margin-left: 10px;\n"], _q.raw = ["\n    color: red;\n    margin-left: 10px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].label(_q));
 var AddRecipe = (function (_super) {
     __extends(AddRecipe, _super);
     function AddRecipe() {
         var _this = _super.call(this) || this;
+        // updateImage(): void {
+        //     const form = new FormData();
+        //     form.append('file', this.state.imageBase64String);
+        //     alert('image will come');
+        //     fetch('/api/Recipe/AddImage',{
+        //         method: 'POST',
+        //         body: form,
+        //         headers: new Headers({
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json'
+        //         })
+        //     }).then((res:any) => {console.log(res);});
+        // }
         _this.ingredientList = [];
-        _this.state = { title: '', ingredients: [], instructions: '', error: '', imageBlob: null };
+        _this.state = { title: '', ingredients: [], instructions: '', error: '', imageBase64String: null, background: '' };
         _this.handleTitleChange = _this.handleTitleChange.bind(_this);
         _this.handleInstructionsChange = _this.handleInstructionsChange.bind(_this);
-        //this.handleIngredientChange = this.handleIngredientChange.bind(this);
         _this.handleSubmit = _this.handleSubmit.bind(_this);
         _this.addRecipe = _this.addRecipe.bind(_this);
         _this.addIngredient = _this.addIngredient.bind(_this);
         _this.handleKeyPress = _this.handleKeyPress.bind(_this);
-        _this.updateImage = _this.updateImage.bind(_this);
+        //this.updateImage = this.updateImage.bind(this);
         _this.handleImageChange = _this.handleImageChange.bind(_this);
+        _this.onImageLoad = _this.onImageLoad.bind(_this);
         return _this;
     }
     AddRecipe.prototype.handleImageChange = function (event) {
-        this.setState({ imageBlob: event.target.file });
+        var file = event.target.files[0];
+        if (file && file.type.match('image.*')) {
+            this.setState(function (prevState) { return (__assign({}, prevState, { imageBlob: file })); });
+            var fileReader = new FileReader();
+            fileReader.onload = this.onImageLoad;
+            fileReader.readAsDataURL(file);
+        }
+    };
+    AddRecipe.prototype.onImageLoad = function (event) {
+        var base64 = event.target.result;
+        this.setState(function (prevState) { return (__assign({}, prevState, { imageBase64String: base64 })); });
     };
     AddRecipe.prototype.handleTitleChange = function (event) {
         this.setState({ title: event.target.value });
     };
-    // handleIngredientChange(event: any): void {
-    // }
     AddRecipe.prototype.handleInstructionsChange = function (event) {
         this.setState({ instructions: event.target.value });
     };
@@ -10080,17 +10109,6 @@ var AddRecipe = (function (_super) {
         alert('A name was submitted: ' + this.state.title);
         event.preventDefault();
     };
-    AddRecipe.prototype.updateImage = function () {
-        alert('image will come');
-        fetch('/api/Recipe/AddImage', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: new Headers({
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            })
-        }).then(function (res) { console.log(res); });
-    };
     AddRecipe.prototype.addIngredient = function (event) {
         //alert(`added ${this.state.ingredients}`);
         this.ingredientList.push({ Name: event.target.value });
@@ -10103,7 +10121,7 @@ var AddRecipe = (function (_super) {
             createDateTime: new Date(),
             Instructions: this.state.instructions,
             Title: this.state.title,
-            Ingridients: this.state.ingredients
+            Image: this.state.imageBase64String
         };
         if (data.Title == '') {
             this.setState({ error: 'title cannot be empty' });
@@ -10118,11 +10136,23 @@ var AddRecipe = (function (_super) {
             })
         }).then(function (res) {
             if (res.status === 200) {
-                //
+                ///this.uploadNewImage();
             }
             else {
                 res.text().then(function (t) { return _this.setState({ error: t }); });
             }
+        });
+    };
+    AddRecipe.prototype.uploadNewImage = function () {
+        var form = new FormData();
+        form.append('file', this.state.imageBase64String);
+        fetch('/api/Recipe/UploadImage', {
+            credentials: 'include',
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
+            },
+            body: form
         });
     };
     AddRecipe.prototype.render = function () {
@@ -10133,9 +10163,8 @@ var AddRecipe = (function (_super) {
             });
         }
         return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Outer, null,
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Image, null,
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: 'file', name: 'Select Image File', onChange: this.handleImageChange }),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](ImageButton, { type: 'submit', value: 'Upload Image', onClick: this.updateImage }),
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Image, { style: { backgroundImage: "url(" + this.state.imageBase64String + ")" } },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: 'file', name: 'Select Image File', onChange: this.handleImageChange, accept: ".png,.jpeg,.jpg,.gif" }),
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Form, null,
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormHeader, null, "Recipe Card"),
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormField, null,
@@ -10151,7 +10180,7 @@ var AddRecipe = (function (_super) {
                             //value={this.state.ingredients}
                             //onChange={this.handleIngredientChange}
                             onKeyPress: this.handleKeyPress }),
-                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_fontawesome__, { name: "plus", onClick: this.addIngredient })),
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_fontawesome___default.a, { name: "plus", onClick: this.addIngredient })),
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](IngredientsList, null, formatedIngredientsList),
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](InstructionFormField, null,
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Label, null, "Recipe Instruction:"),
