@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f76f6180b268fa7c1722"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b7da7475e46ec1d1b81f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10035,9 +10035,10 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 
 
 
+var img = 'recipe.jpg';
 var Outer = (_a = ["\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    padding-top: 20px;\n    height: 660px;\n    width: 900px;\n    margin: auto;\n    color: #808080;\n"], _a.raw = ["\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    padding-top: 20px;\n    height: 660px;\n    width: 900px;\n    margin: auto;\n    color: #808080;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_a));
-var Image = (_b = ["\n    background-color:red;\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    background-image: url('https://images.theconversation.com/files/181712/original/file-20170810-27667-l8qew7.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1012&h=668&fit=crop');\n    border: 1px solid black;\n"], _b.raw = ["\n    background-color:red;\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    background-image: url('https://images.theconversation.com/files/181712/original/file-20170810-27667-l8qew7.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1012&h=668&fit=crop');\n    border: 1px solid black;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_b));
-var Form = (_c = ["\n    height: 575px;\n    width: 400px;\n    justify-content: center;\n    background-color: #fff;\n    opacity: 0.93;\n    float: right;\n"], _c.raw = ["\n    height: 575px;\n    width: 400px;\n    justify-content: center;\n    background-color: #fff;\n    opacity: 0.93;\n    float: right;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].form(_c));
+var Image = (_b = ["\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    border: 1px solid black;\n    background-size: cover;\n"], _b.raw = ["\n    height: 600px;\n    width: 800px;\n    margin: auto;\n    border: 1px solid black;\n    background-size: cover;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_b));
+var Form = (_c = ["\n    margin-top: -20px;\n    height: 598px;\n    width: 400px;\n    justify-content: center;\n    background-color: #fff;\n    opacity: 0.9;\n    float: right;\n"], _c.raw = ["\n    margin-top: -20px;\n    height: 598px;\n    width: 400px;\n    justify-content: center;\n    background-color: #fff;\n    opacity: 0.9;\n    float: right;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].form(_c));
 var FormHeader = (_d = ["\n    font-weight: 900;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 80%;\n"], _d.raw = ["\n    font-weight: 900;\n    height: 50px;\n    display: flex;\n    align-self: center;\n    justify-content: center;\n    align-items: center;\n    width: 80%;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].h2(_d));
 var FormField = (_e = ["\n    width: 100%;\n    padding: 5px 10px;\n"], _e.raw = ["\n    width: 100%;\n    padding: 5px 10px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_e));
 var InstructionFormField = (_f = ["\n    margin-top: 10px;\n    width: 100%;\n    padding: 5px 10px;\n"], _f.raw = ["\n    margin-top: 10px;\n    width: 100%;\n    padding: 5px 10px;\n"], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_f));
@@ -10054,21 +10055,8 @@ var AddRecipe = (function (_super) {
     __extends(AddRecipe, _super);
     function AddRecipe() {
         var _this = _super.call(this) || this;
-        // updateImage(): void {
-        //     const form = new FormData();
-        //     form.append('file', this.state.imageBase64String);
-        //     alert('image will come');
-        //     fetch('/api/Recipe/AddImage',{
-        //         method: 'POST',
-        //         body: form,
-        //         headers: new Headers({
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json'
-        //         })
-        //     }).then((res:any) => {console.log(res);});
-        // }
         _this.ingredientList = [];
-        _this.state = { title: '', ingredients: [], instructions: '', error: '', imageBase64String: null, background: '' };
+        _this.state = { title: '', ingredients: [], instructions: '', error: '', imageBase64String: img };
         _this.handleTitleChange = _this.handleTitleChange.bind(_this);
         _this.handleInstructionsChange = _this.handleInstructionsChange.bind(_this);
         _this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -10136,7 +10124,6 @@ var AddRecipe = (function (_super) {
             })
         }).then(function (res) {
             if (res.status === 200) {
-                ///this.uploadNewImage();
             }
             else {
                 res.text().then(function (t) { return _this.setState({ error: t }); });
@@ -10163,7 +10150,7 @@ var AddRecipe = (function (_super) {
             });
         }
         return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Outer, null,
-            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Image, { style: { backgroundImage: "url(" + this.state.imageBase64String + ")" } },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Image, { style: { backgroundImage: "url(" + this.state.imageBase64String + ")", width: 800, height: 600 } },
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: 'file', name: 'Select Image File', onChange: this.handleImageChange, accept: ".png,.jpeg,.jpg,.gif" }),
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Form, null,
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](FormHeader, null, "Recipe Card"),

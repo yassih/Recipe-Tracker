@@ -6,6 +6,9 @@ import { Base64 } from 'js-base64';
 
 import uuid from 'uuid/v4';
 
+const img = 'recipe.jpg';
+
+  
 
 const Outer: any = styled.div`
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -17,20 +20,20 @@ const Outer: any = styled.div`
 `;
 
 const Image: any = styled.div`
-    background-color:red;
     height: 600px;
     width: 800px;
     margin: auto;
-    background-image: url('https://images.theconversation.com/files/181712/original/file-20170810-27667-l8qew7.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1012&h=668&fit=crop');
     border: 1px solid black;
+    background-size: cover;
 `;
 
 const Form: any = styled.form`
-    height: 575px;
+    margin-top: -20px;
+    height: 598px;
     width: 400px;
     justify-content: center;
     background-color: #fff;
-    opacity: 0.93;
+    opacity: 0.9;
     float: right;
 `;
 
@@ -134,11 +137,11 @@ interface ILocalProps {
     //
 }
 
-export class AddRecipe extends React.Component<RouteComponentProps<{}>, { title: string, background: string, imageBase64String: any, ingredients: any, instructions: string, error: string }> {
+export class AddRecipe extends React.Component<RouteComponentProps<{}>, { title: string, imageBase64String: any, ingredients: any, instructions: string, error: string }> {
     constructor() {
         super();
 
-        this.state = { title: '', ingredients: [], instructions: '', error: '', imageBase64String: null, background: ''};
+        this.state = { title: '', ingredients: [], instructions: '', error: '', imageBase64String: img};
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleInstructionsChange = this.handleInstructionsChange.bind(this);
@@ -188,22 +191,6 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, { title:
         event.preventDefault();
     }
 
-    // updateImage(): void {
-
-    //     const form = new FormData();
-    //     form.append('file', this.state.imageBase64String);
-
-    //     alert('image will come');
-    //     fetch('/api/Recipe/AddImage',{
-    //         method: 'POST',
-    //         body: form,
-    //         headers: new Headers({
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         })
-    //     }).then((res:any) => {console.log(res);});
-    // }
-
     ingredientList: any = [];
     private addIngredient(event: any): void {
         //alert(`added ${this.state.ingredients}`);
@@ -233,7 +220,6 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, { title:
             })
         }).then(res => {
             if (res.status === 200) {
-                ///this.uploadNewImage();
             } else {
                 res.text().then((t) => this.setState({ error: t }));
             }
@@ -267,9 +253,9 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, { title:
 
         return (
             <Outer>
-                <Image style={{backgroundImage: "url(" + this.state.imageBase64String + ")"}}>
+                <Image style={{backgroundImage: "url(" + this.state.imageBase64String + ")" , width:800 , height:600 }}>
                     <input type='file' name='Select Image File' onChange={this.handleImageChange} accept=".png,.jpeg,.jpg,.gif"/>
-                    {/* <ImageButton type='submit' value='Upload Image' onClick={this.updateImage}/> */}
+                    {/* <div style={{ backgroundImage: `url(${img})`, width:200 , height:500 }}/> */}
                     <Form>
                         <FormHeader>
                             Recipe Card
