@@ -38,7 +38,6 @@ namespace App.Controllers
         }
         [HttpGet("[action]")]
         public IActionResult getRecipes()
-        //public List<Recipe> getRecipes()
         {
             try
             {
