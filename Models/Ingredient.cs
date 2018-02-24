@@ -10,7 +10,6 @@ namespace App.Models
         [Key]
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public DateTime CreateDateTime { get; set; }
         public string Measurement { get; set;} 
         public Recipe Recipe { get; set; }
 

@@ -24,8 +24,6 @@ namespace App.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreateDateTime");
-
                     b.Property<string>("Measurement");
 
                     b.Property<string>("Name");
@@ -43,8 +41,6 @@ namespace App.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("CreateDateTime");
 
                     b.Property<string>("Image");
 

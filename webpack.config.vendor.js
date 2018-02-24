@@ -23,12 +23,12 @@ module.exports = (env) => {
                 'event-source-polyfill',
                 'isomorphic-fetch', 
                 'react',
+                'react-autobind',
                 'react-dom',
                 'react-router-dom',
                 'jquery',
                 'styled-components',
-                'uuid/v4',
-                'js-base64'
+                'uuid/v4'
             ],
 
         },

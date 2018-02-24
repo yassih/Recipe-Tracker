@@ -13,7 +13,6 @@ namespace App.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    CreateDateTime = table.Column<DateTime>(nullable: false),
                     Image = table.Column<string>(nullable: true),
                     Instructions = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true)
@@ -28,7 +27,6 @@ namespace App.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    CreateDateTime = table.Column<DateTime>(nullable: false),
                     Measurement = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     RecipeId = table.Column<Guid>(nullable: true)
