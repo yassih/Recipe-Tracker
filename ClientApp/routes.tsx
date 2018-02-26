@@ -9,7 +9,7 @@ import { ListRecipes } from './components/ListRecipes';
 import { RecipeDetails } from './components/RecipeDetail';
 
 export const routes = <Layout>
-    <Route exact path='/' component={Home} />
+    <Route exact path='/' component={AddRecipe} />
     <Route path='/counter' component={Counter} />
     <Route path='/fetchdata' component={FetchData} />
     <Route path='/home' component={FetchData} />
