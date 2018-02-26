@@ -146,7 +146,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         autobind(this);
     }
 
-    handleImageChange(event: any): void {
+    private handleImageChange(event: any): void {
         const file: any = event.target.files[0];
         if (file && file.type.match('image.*')) {
             this.setState((prevState) => ({ ...prevState, imageBlob: file }));
@@ -162,27 +162,27 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         this.setState((prevState) => ({ ...prevState, imageBase64String: base64 }));
     }
 
-    handleTitleChange(event: any): void {
+    private handleTitleChange(event: any): void {
         this.setState({ title: event.target.value });
     }
 
-    handleInstructionsChange(event: any): void {
+    private handleInstructionsChange(event: any): void {
         this.setState({ instructions: event.target.value });
     }
 
-    handleKeyPress(event: any): void {
+    private handleKeyPress(event: any): void {
         if (event.key === 'Enter') {
             console.log('dd');
             this.addIngredient(event);
         }
     }
 
-    handleSubmit(event: any): void {
+    private handleSubmit(event: any): void {
         alert('A name was submitted: ' + this.state.title);
         event.preventDefault();
     }
 
-    ingredientList: any = [];
+    private ingredientList: any = [];
     private addIngredient(event: any): void {
         this.ingredientList.push({ Name: event.target.value });
         this.setState({ ingredients: this.ingredientList });
@@ -200,13 +200,11 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         };
 
         ApiService.addRecipe(recipe).then((data) => {
-             if(data){
-                 console.log(data);
-             }
-             else
-             {
-                 console.log('something is wrong');
-             }
+            if (data) {
+                console.log(data);
+            } else {
+                console.log('something is wrong');
+            }
         });
     }
 
@@ -231,7 +229,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                 formatedIngredientsList.push(<span>
                     {item.Name + ', '}
                 </span>);
-            })
+            });
         }
 
         return (
