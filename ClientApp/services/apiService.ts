@@ -10,8 +10,8 @@ interface IApiService {
 
 class ApiService implements IApiService {
 
-    addRecipe(recipe: IRecipe) {
-        if (recipe.title == '') {
+    public addRecipe(recipe: IRecipe) {
+        if (recipe.title === '') {
             return;
         }
         return fetch('/api/Recipe/AddRecipe', {
