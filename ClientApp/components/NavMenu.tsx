@@ -39,7 +39,7 @@ export class NavMenu extends React.Component<{}, {}> {
                         </li>
                         <li>
                             <NavLink to={ '/listrecipes' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-th-list'></span> ListRecipe
+                                <span className='glyphicon glyphicon-th-list'></span> ListRecipes
                             </NavLink>
                         </li>
                     </ul>

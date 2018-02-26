@@ -202,6 +202,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         ApiService.addRecipe(recipe).then((data) => {
             if (data) {
                 console.log(data);
+                this.props.history.push(`/recipedetails/${data.id}`);
             } else {
                 console.log('something is wrong');
             }
