@@ -10,10 +10,8 @@ namespace App.Repository
 {
     public interface IDataRepository
     {
-        void createRecipe(Recipe recipe);
-        List<Recipe> getAllRecipes();
-        Recipe GetRecipe(Guid id);
-
+        void CreateRecipe(Recipe recipe);
+        List<Recipe> GetAllRecipes();
+        Recipe GetRecipe(Guid recipeId);
     }
 }
-

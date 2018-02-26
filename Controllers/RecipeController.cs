@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc; //IActonresult comes from here
+using Microsoft.AspNetCore.Mvc; //IActionResult comes from here
 using System.Diagnostics;
 using App.Models;
 using App.Services;
@@ -19,14 +19,14 @@ namespace App.Controllers
             _dataService = dataService;
         }
         //IDataService ds = new DataService();
-        
+
         [HttpPost("[action]")]
         public IActionResult AddRecipe([FromBody]Recipe recipe)
         {
-            try 
+            try
             {
-                _dataService.AddTheDamnRecipe(recipe);
-                
+                _dataService.AddRecipe(recipe);
+
                 return Ok(recipe);
             }
             catch (Exception ex)
@@ -34,62 +34,46 @@ namespace App.Controllers
                 Console.WriteLine(ex);
                 return BadRequest(ex.Message);
             }
-            
+
         }
         [HttpGet("[action]")]
-        public IActionResult getRecipes()
+        public IActionResult GetRecipes()
         {
             try
             {
-                return Ok(_dataService.getRecipes());
+                return Ok(_dataService.GetRecipes());
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
                 return BadRequest();
             }
-            
+
         }
 
         public IActionResult UploadImage(IFormFile Image)
         {
-            try 
+            try
             {
                 return Ok();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return BadRequest();
             }
         }
+
         [HttpGet("[action]")]
-        public IActionResult getRecipe(string id)
+        public IActionResult GetRecipe(string id)
         {
-            try 
+            try
             {
                 return Ok(_dataService.GetRecipe(id));
             }
-            catch 
+            catch
             {
                 return BadRequest();
             }
         }
-
-        public class RecipeDTO 
-        {
-        public Guid Id { get; set; }
-        public string Title { get; set; }
-        public string Instructions {get; set;}
-        public DateTime CreateDateTime { get; set; }
-        public string Image { get; set; }
-        public ICollection<IngridientDTO> Ingridients {get; set;}
-        }
-
-        public class IngridientDTO 
-        {
-            public string Name {get; set;}
-        }
-
-
     }
 }

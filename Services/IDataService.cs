@@ -11,8 +11,8 @@ namespace App.Services
 {
     public interface IDataService
     {
-        void AddTheDamnRecipe(Recipe recipe);
-        List<Recipe> getRecipes();
+        void AddRecipe(Recipe recipe);
+        List<Recipe> GetRecipes();
         Recipe GetRecipe(string id);
     }
 }

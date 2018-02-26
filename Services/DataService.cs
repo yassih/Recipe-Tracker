@@ -12,34 +12,29 @@ namespace App.Services
 {
     public class DataService : IDataService
     {
-        //here
         internal readonly IDataRepository _dataRepository;
         public DataService(IDataRepository dataRepository)
         {
-
-            //i did this too
             _dataRepository = dataRepository;
-        }// use same name
-        //public DataService() { }
-        //i have a hard coded dependency on data repository
-        //IDataRepository dr = new DataRepository();
-        public void AddTheDamnRecipe(Recipe recipe)
+        }
+        public void AddRecipe(Recipe recipe)
         {
             try
             {
-                if(recipe.Title.Trim() == "")
+                if (recipe.Title.Trim() == "")
                 {
-                    throw new Exception("name cannot be empty!");
+                    throw new Exception("Recipe title cannot be empty!");
                 }
-                List<Recipe> allRecipes = _dataRepository.getAllRecipes();
+
+                List<Recipe> allRecipes = _dataRepository.GetAllRecipes();
                 foreach (var item in allRecipes)
                 {
-                    if(item.Title == recipe.Title)
+                    if (item.Title == recipe.Title)
                     {
                         throw new DuplicateNameException("duplicate name");
                     }
                 }
-                _dataRepository.createRecipe(recipe);
+                _dataRepository.CreateRecipe(recipe);
             }
 
             catch (DuplicateNameException ex)
@@ -49,23 +44,22 @@ namespace App.Services
 
             catch (Exception ex)
             {
-                if(ex.Message == "name cannot be empty!")
+                if (ex.Message == "Recipe name cannot be empty!")
                 {
                     throw ex;
                 }
                 else
                 {
-                    throw new Exception("something went serriously wrong");
+                    throw new Exception("Something went serriously wrong!");
                 }
-                
             }
         }
 
-        public List<Recipe> getRecipes()
+        public List<Recipe> GetRecipes()
         {
             try
             {
-                return _dataRepository.getAllRecipes();
+                return _dataRepository.GetAllRecipes();
             }
             catch (Exception ex)
             {
@@ -76,10 +70,10 @@ namespace App.Services
 
         public Recipe GetRecipe(string id)
         {
-            try 
+            try
             {
                 Guid recipeId;
-                if(Guid.TryParse(id,out recipeId))
+                if (Guid.TryParse(id, out recipeId))
                 {
                     return _dataRepository.GetRecipe(recipeId);
                 }
@@ -87,14 +81,12 @@ namespace App.Services
                 {
                     return null;
                 }
-              
+
             }
-            catch 
+            catch
             {
                 return null;
             }
         }
     }
 }
-
-//make an interface for repsitory 
