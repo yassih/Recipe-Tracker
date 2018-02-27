@@ -26,13 +26,32 @@ class ApiService implements IApiService {
             .then((response) => {
                 if (response.status === 200) {
                     return response.json().then((data) => {
-                        return data ;//as Promise<IRecipe>;
+                        return data;//as Promise<IRecipe>;
                     });
                 } else {
                     return null;
                 }
             });
     }
+
+    public getRecipeById(recipeId: string) {
+        return fetch(`/api/Recipe/GetRecipeById?recipeId=${recipeId}`, {
+            method: 'GET',
+            headers: new Headers({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            })
+        }).then((response) => {
+            if (response.status === 200) {
+                return response.json().then((data) => {
+                    return data;//as Promise<IRecipe>;
+                });
+            } else {
+                return null;
+            }
+        });
+    }
+
 }
 
 export default new ApiService();

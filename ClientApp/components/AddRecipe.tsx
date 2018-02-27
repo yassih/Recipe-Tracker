@@ -151,6 +151,16 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         autobind(this);
     }
 
+    public componentWillMount() {
+        if (this.props.match.params && this.props.match.params['id']) {
+            let id = this.props.match.params['id'];
+            ApiService.getRecipeById(id).then((data) => {
+                this.setState((prevState) => ({ title: data.title , imageBase64String: data.image}));
+            });
+        }
+
+    }
+
     private handleImageChange(event: any): void {
         const file: any = event.target.files[0];
         if (file && file.type.match('image.*')) {

@@ -32,7 +32,7 @@ const RecipeCard = (props: any) => {
 
     return (
         <div>
-            <Link to={`/recipedetails/${props.recipeId}`} >
+            <Link to={`/addrecipe/${props.recipeId}`} >
                 <Card>
                     <Image>
                         <img
