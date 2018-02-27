@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import uuid from 'uuid/v4';
 import { IRecipe } from '../interfaces/IRecipe';
 import { IIngredient } from 'ClientApp/interfaces/IIngredient';
+import Button from '../components/Button';
 
 interface ILocalState {
     isEditing: boolean;
@@ -108,26 +109,6 @@ const Label: any = styled.label`
     font-family: 'Roboto',sans-serif;
 `;
 
-const Button: any = styled.input`
-    width: 20px;
-    height: 50px;
-    border: thin solid #fff;
-    background-color: #224377;
-    align-self: center;
-    margin-top: 20px;
-`;
-
-const RecipeButton: any = styled.input`
-    width: 200px;
-    height: 50px;
-    border: thin solid #dddddf;
-    background-color: #fff;
-    align-self: center;
-    float:right;
-    margin-right: 10px;
-    margin-top: 10px;
-`;
-
 const Error: any = styled.label`
     color: red;
     margin-left: 10px;
@@ -145,7 +126,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
             ingredients: [],
             instructions: '',
             error: '',
-            imageBase64String: defaultImage
+            imageBase64String: ''
         };
 
         autobind(this);
@@ -155,10 +136,16 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         if (this.props.match.params && this.props.match.params['id']) {
             let id = this.props.match.params['id'];
             ApiService.getRecipeById(id).then((data) => {
-                this.setState((prevState) => ({ title: data.title , imageBase64String: data.image}));
+                this.setState((prevState) => ({ title: data.title, imageBase64String: data.image }));
             });
+        } else {
+            this.setState({ imageBase64String: defaultImage });
         }
 
+    }
+
+    public componentWillUnmount() {
+        this.setState({ imageBase64String: '' });
     }
 
     private handleImageChange(event: any): void {
@@ -242,6 +229,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
 
     public render() {
         let formatedIngredientsList: any = [];
+        const isEnabled: boolean = this.state.title? true : false ;
         if (this.ingredientList) {
             this.ingredientList.forEach((item: any) => {
                 formatedIngredientsList.push(<span>
@@ -253,7 +241,6 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         return (
             <div>
                 <ToastContainer autoClose={5000} />
-                <ButtonList />
                 <Outer>
                     <Image style={{ backgroundImage: "url(" + this.state.imageBase64String + ")", width: 800, height: 600 }}>
                         <input type='file' name='Select Image File' onChange={this.handleImageChange} accept=".png,.jpeg,.jpg,.gif" />
@@ -293,11 +280,17 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                                     rows={7}
                                 />
                             </InstructionFormField>
-                            <RecipeButton
+                            <Button
                                 type='button'
                                 onClick={this.addRecipe}
-                                value='Add Recipe'
-                                disabled={this.state.title ? false : true}
+                                value='Save'
+                                disabled={!isEnabled}
+                            />
+                            <Button
+                                type='button'
+                                onClick={this.addRecipe}
+                                value='Cancel Changes'
+                                disabled={!isEnabled}
                             />
                         </Form>
                     </Image>

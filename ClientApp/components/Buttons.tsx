@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
 const ButtonBlock: any = styled.div`
     overflow: auto;
     padding-bottom: 5px;
@@ -28,15 +27,15 @@ const ButtonList = (props: any) => {
             <Button
                 type='button'
                 onClick={this.editRecipe}
-                value='Edit'
-                style={{display: 'none' }}
+                value='Save'
+                // style={{display: 'none' }}
         />
             <Button
                 type='button'
                 onClick={this.addRecipe}
-                value='Save'
+                value='Cancel'
                 disable={true}
-                style={{display: 'none' }}
+                // style={{display: 'none' }}
             />
             <Button
                 type='button'
@@ -46,8 +45,7 @@ const ButtonList = (props: any) => {
                 style={{display: 'none' }}
             />
         </ButtonBlock>
-    )
-}
+    );
+};
 
 export default ButtonList;
-
