@@ -12,6 +12,6 @@ namespace App.Repository
     {
         void CreateRecipe(Recipe recipe);
         List<Recipe> GetAllRecipes();
-        Recipe GetRecipe(Guid recipeId);
+        Recipe GetRecipeById(Guid recipeId);
     }
 }

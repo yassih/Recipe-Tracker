@@ -43,7 +43,7 @@ namespace App.Repository
             }
         }
 
-        public Recipe GetRecipe(Guid recipeId)
+        public Recipe GetRecipeById(Guid recipeId)
         {
             try
             {

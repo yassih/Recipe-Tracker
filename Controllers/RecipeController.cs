@@ -64,11 +64,11 @@ namespace App.Controllers
         }
 
         [HttpGet("[action]")]
-        public IActionResult GetRecipe(string id)
+        public IActionResult GetRecipeById(string recipeId)
         {
             try
             {
-                return Ok(_dataService.GetRecipe(id));
+                return Ok(_dataService.GetRecipeById(recipeId));
             }
             catch
             {

@@ -13,7 +13,7 @@ namespace App.Services
     {
         void AddRecipe(Recipe recipe);
         List<Recipe> GetRecipes();
-        Recipe GetRecipe(string id);
+        Recipe GetRecipeById(string id);
     }
 }
 

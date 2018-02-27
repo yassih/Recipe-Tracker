@@ -68,14 +68,14 @@ namespace App.Services
             }
         }
 
-        public Recipe GetRecipe(string id)
+        public Recipe GetRecipeById(string id)
         {
             try
             {
                 Guid recipeId;
                 if (Guid.TryParse(id, out recipeId))
                 {
-                    return _dataRepository.GetRecipe(recipeId);
+                    return  _dataRepository.GetRecipeById(recipeId);
                 }
                 else
                 {
