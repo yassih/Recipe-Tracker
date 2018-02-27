@@ -2,50 +2,53 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
 const Card = styled.div`
-    min-width: 350px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
     flex-wrap: wrap;
     margin: 10px;
     float: left;
+    &:hover {
+        box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+    }
 `;
 
 const Image = styled.div`
-    padding: 10px;
 `;
 
 const Title = styled.div`
-    color: #ff4411; 
-    font-size: 24px; 
-    font-family: 'Signika', sans-serif; 
-    padding-bottom: 5px;  
+    color: #606060;
+    font-size: 24px;
+    font-family: 'Signika', sans-serif;
+    padding-bottom: 5px;
+    margin-top: 15px;
 `;
 
 const RecipeCard = (props: any) => {
     console.log('recipe card props');
     console.log(props);
 
-    //let title = props.title;
-    //const { children } = this.props; ask brad why this is not working
+    return (
+        <div>
+            <Link to={`/recipedetails/${props.recipeId}`} >
+                <Card>
+                    <Image>
+                        <img
+                            src={props.image}
+                            height={225}
+                            width={300}
+                        />
+                    </Image>
+                    <Title>
+                        {props.title}
+                    </Title>
+                </Card>
+            </Link>
 
-    return(
-    <Card>
-        <Title>
-            <Link to={`/recipedetails/${props.recipeId}`}>{props.title}</Link>
-        </Title>
-        <Image>
-            <img 
-            src={props.image}
-            height= {200}
-            width = {350}
-            />
-        </Image>
-    </Card>
-    )
-  }
+        </div>
+    );
+};
 
-  export default RecipeCard;
-
+export default RecipeCard;
