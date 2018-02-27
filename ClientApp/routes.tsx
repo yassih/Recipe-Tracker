@@ -13,7 +13,7 @@ export const routes = <Layout>
     <Route path='/counter' component={Counter} />
     <Route path='/fetchdata' component={FetchData} />
     <Route path='/home' component={FetchData} />
-    <Route path='/addrecipe' component={AddRecipe} />
+    <Route path='/addrecipe/:id?' component={AddRecipe} />
     <Route path='/listrecipes' component={ListRecipes} />
     <Route path='/recipedetails/:id' component={RecipeDetails} />
 
