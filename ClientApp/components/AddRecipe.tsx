@@ -207,7 +207,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
             if (data) {
                 console.log(data);
                 //TODO
-                toast("Recipe was successfully added");
+                toast.success("Recipe was successfully added");
                 this.setState({ isEditing: false });
                 this.props.history.push(`/addrecipe/${data.id}`);
             } else {
@@ -242,7 +242,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
 
         return (
             <div>
-                <ToastContainer autoClose={8000} />
+                <ToastContainer autoClose={5000} />
                 <ButtonList />
                 <Outer>
                     <Image style={{ backgroundImage: "url(" + this.state.imageBase64String + ")", width: 800, height: 600 }}>
