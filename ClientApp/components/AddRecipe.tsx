@@ -4,11 +4,14 @@ import styled from 'styled-components';
 import autobind from 'react-autobind';
 import Fontawesome from 'react-fontawesome';
 import ApiService from '../services/apiService';
+import ButtonList from '../components/Buttons';
+import { ToastContainer, toast } from 'react-toastify';
 import uuid from 'uuid/v4';
 import { IRecipe } from '../interfaces/IRecipe';
 import { IIngredient } from 'ClientApp/interfaces/IIngredient';
 
 interface ILocalState {
+    isEditing: boolean;
     title: string;
     imageBase64String: string;
     ingredients: IIngredient[];
@@ -23,6 +26,7 @@ const Outer: any = styled.div`
     width: 900px;
     margin: auto;
     color: #808080;
+    clear: both;
 `;
 
 const Image: any = styled.div`
@@ -136,6 +140,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         super();
 
         this.state = {
+            isEditing: true,
             title: '',
             ingredients: [],
             instructions: '',
@@ -172,7 +177,6 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
 
     private handleKeyPress(event: any): void {
         if (event.key === 'Enter') {
-            console.log('dd');
             this.addIngredient(event);
         }
     }
@@ -202,7 +206,10 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         ApiService.addRecipe(recipe).then((data) => {
             if (data) {
                 console.log(data);
-                this.props.history.push(`/recipedetails/${data.id}`);
+                //TODO
+                toast("Recipe was successfully added");
+                this.setState({ isEditing: false });
+                this.props.history.push(`/addrecipe/${data.id}`);
             } else {
                 console.log('something is wrong');
             }
@@ -234,48 +241,58 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         }
 
         return (
-            <Outer>
-                <Image style={{ backgroundImage: "url(" + this.state.imageBase64String + ")", width: 800, height: 600 }}>
-                    <input type='file' name='Select Image File' onChange={this.handleImageChange} accept=".png,.jpeg,.jpg,.gif" />
-                    <Form>
-                        <FormHeader>
-                            Recipe Card
-                        </FormHeader>
-                        <FormField>
-                            <Label>Recipe Name:</Label>
-                            <Error>{this.state.error}</Error>
-                            <Input
-                                id="recipe_name"
-                                value={this.state.title}
-                                onChange={this.handleTitleChange}
+            <div>
+                <ToastContainer autoClose={8000} />
+                <ButtonList />
+                <Outer>
+                    <Image style={{ backgroundImage: "url(" + this.state.imageBase64String + ")", width: 800, height: 600 }}>
+                        <input type='file' name='Select Image File' onChange={this.handleImageChange} accept=".png,.jpeg,.jpg,.gif" />
+                        <Form>
+                            <FormHeader>
+                                {this.state.title}
+                            </FormHeader>
+                            <FormField>
+                                <Label>Recipe Name:</Label>
+                                <Error>{this.state.error}</Error>
+                                <Input
+                                    id="recipe_name"
+                                    value={this.state.title}
+                                    onChange={this.handleTitleChange}
+                                    disabled={this.state.isEditing ? false : true}
+                                />
+                            </FormField>
+                            <FormField>
+                                <Label>Recipe Ingredients:</Label>
+                                <IngredientsInput
+                                    onKeyPress={this.handleKeyPress}
+                                />
+                                <Fontawesome
+                                    name="plus"
+                                    onClick={this.addIngredient}
+                                />
+                            </FormField>
+                            <IngredientsList>
+                                {formatedIngredientsList}
+                            </IngredientsList>
+                            <InstructionFormField>
+                                <Label>Recipe Instruction:</Label>
+                                <TextareaInput
+                                    id="recipe_instructions"
+                                    value={this.state.instructions}
+                                    onChange={this.handleInstructionsChange}
+                                    rows={7}
+                                />
+                            </InstructionFormField>
+                            <RecipeButton
+                                type='button'
+                                onClick={this.addRecipe}
+                                value='Add Recipe'
+                                disabled={this.state.title ? false : true}
                             />
-                        </FormField>
-                        <FormField>
-                            <Label>Recipe Ingredients:</Label>
-                            <IngredientsInput
-                                onKeyPress={this.handleKeyPress}
-                            />
-                            <Fontawesome
-                                name="plus"
-                                onClick={this.addIngredient}
-                            />
-                        </FormField>
-                        <IngredientsList>
-                            {formatedIngredientsList}
-                        </IngredientsList>
-                        <InstructionFormField>
-                            <Label>Recipe Instruction:</Label>
-                            <TextareaInput
-                                id="recipe_instructions"
-                                value={this.state.instructions}
-                                onChange={this.handleInstructionsChange}
-                                rows={7}
-                            />
-                        </InstructionFormField>
-                        <RecipeButton type='button' onClick={this.addRecipe} value='Add Recipe' />
-                    </Form>
-                </Image>
-            </Outer>
+                        </Form>
+                    </Image>
+                </Outer>
+            </div>
         );
     }
 }
