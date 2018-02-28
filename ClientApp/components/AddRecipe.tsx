@@ -121,7 +121,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         super();
 
         this.state = {
-            isEditing: true,
+            isEditing: false,
             title: '',
             ingredients: [],
             instructions: '',
@@ -141,6 +141,20 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         } else {
             this.setState({ imageBase64String: defaultImage });
         }
+
+    }
+
+    public cancelChanges() {
+        this.setState((prevState) => {
+            return prevState;
+         });
+
+        // this.setState((prevState) => {
+        //     return {
+        //         ...prevState,
+        //         isAddNewModalVisible: false
+        //     };
+        // });
 
     }
 
@@ -165,7 +179,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
     }
 
     private handleTitleChange(event: any): void {
-        this.setState({ title: event.target.value });
+        this.setState({ title: event.target.value , isEditing: true});
     }
 
     private handleInstructionsChange(event: any): void {
@@ -229,7 +243,8 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
 
     public render() {
         let formatedIngredientsList: any = [];
-        const isEnabled: boolean = this.state.title? true : false ;
+
+        const isEnabled: boolean = (this.state.title) && (this.state.isEditing);
         if (this.ingredientList) {
             this.ingredientList.forEach((item: any) => {
                 formatedIngredientsList.push(<span>
@@ -255,7 +270,6 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                                     id="recipe_name"
                                     value={this.state.title}
                                     onChange={this.handleTitleChange}
-                                    disabled={this.state.isEditing ? false : true}
                                 />
                             </FormField>
                             <FormField>
@@ -288,7 +302,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                             />
                             <Button
                                 type='button'
-                                onClick={this.addRecipe}
+                                onClick={this.cancelChanges}
                                 value='Cancel Changes'
                                 disabled={!isEnabled}
                             />
