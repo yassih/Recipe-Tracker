@@ -12,12 +12,7 @@ import { IIngredient } from 'ClientApp/interfaces/IIngredient';
 import Button from '../components/Button';
 
 interface ILocalState {
-    isEditing: boolean;
-    title: string;
-    imageBase64String: string;
-    ingredients: IIngredient[];
-    instructions: string;
-    error: string;
+    recipe: IRecipe;
 }
 
 const Outer: any = styled.div`
@@ -121,12 +116,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         super();
 
         this.state = {
-            isEditing: false,
-            title: '',
-            ingredients: [],
-            instructions: '',
-            error: '',
-            imageBase64String: ''
+            recipe: null
         };
 
         autobind(this);
@@ -139,7 +129,13 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                 this.setState((prevState) => ({ title: data.title, imageBase64String: data.image }));
             });
         } else {
-            this.setState({ imageBase64String: defaultImage });
+            this.setState({
+                recipe: {
+                    ...this.state.recipe,
+                    imageBase64String: defaultImage
+                }
+
+            });
         }
 
     }
@@ -147,7 +143,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
     public cancelChanges() {
         this.setState((prevState) => {
             return prevState;
-         });
+        });
 
         // this.setState((prevState) => {
         //     return {
@@ -156,10 +152,6 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         //     };
         // });
 
-    }
-
-    public componentWillUnmount() {
-        this.setState({ imageBase64String: '' });
     }
 
     private handleImageChange(event: any): void {
@@ -179,11 +171,23 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
     }
 
     private handleTitleChange(event: any): void {
-        this.setState({ title: event.target.value , isEditing: true});
+        this.setState({
+            recipe: {
+                ...this.state.recipe,
+                title: event.target.value, isEditing: true
+            }
+
+        });
+
     }
 
     private handleInstructionsChange(event: any): void {
-        this.setState({ instructions: event.target.value });
+        this.setState({
+            recipe: {
+                ...this.state.recipe,
+                instructions: event.target.value
+            }
+        });
     }
 
     private handleKeyPress(event: any): void {
@@ -193,14 +197,19 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
     }
 
     private handleSubmit(event: any): void {
-        alert('A name was submitted: ' + this.state.title);
+        alert('A name was submitted: ' + this.state.recipe.title);
         event.preventDefault();
     }
 
     private ingredientList: any = [];
     private addIngredient(event: any): void {
         this.ingredientList.push({ Name: event.target.value });
-        this.setState({ ingredients: this.ingredientList });
+        this.setState({
+            recipe: {
+                ...this.state.recipe,
+                ingredients: this.ingredientList
+            }
+        });
         event.target.value = '';
     }
 
@@ -208,10 +217,11 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
 
         let recipe: IRecipe = {
             id: uuid(),
-            instructions: this.state.instructions,
-            title: this.state.title,
-            image: this.state.imageBase64String,
-            ingredients: this.state.ingredients
+            instructions: this.state.recipe.instructions,
+            title: this.state.recipe.title,
+            imageBase64String: this.state.recipe.imageBase64String,
+            ingredients: this.state.recipe.ingredients,
+            isEditing: this.state.recipe.isEditing
         };
 
         ApiService.addRecipe(recipe).then((data) => {
@@ -219,7 +229,12 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                 console.log(data);
                 //TODO
                 toast.success("Recipe was successfully added");
-                this.setState({ isEditing: false });
+                this.setState({
+                    recipe: {
+                        ...this.state.recipe,
+                        isEditing: false
+                    }
+                     });
                 this.props.history.push(`/addrecipe/${data.id}`);
             } else {
                 console.log('something is wrong');
@@ -229,7 +244,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
 
     private uploadNewImage() {
         const form = new FormData();
-        form.append('file', this.state.imageBase64String);
+        form.append('file', this.state.recipe.imageBase64String);
 
         fetch('/api/Recipe/UploadImage', {
             credentials: 'include',
@@ -244,7 +259,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
     public render() {
         let formatedIngredientsList: any = [];
 
-        const isEnabled: boolean = (this.state.title) && (this.state.isEditing);
+        const isEnabled: boolean = (this.state.recipe.title) && (this.state.recipe.isEditing);
         if (this.ingredientList) {
             this.ingredientList.forEach((item: any) => {
                 formatedIngredientsList.push(<span>
@@ -257,18 +272,18 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
             <div>
                 <ToastContainer autoClose={5000} />
                 <Outer>
-                    <Image style={{ backgroundImage: "url(" + this.state.imageBase64String + ")", width: 800, height: 600 }}>
+                    <Image style={{ backgroundImage: "url(" + this.state.recipe.imageBase64String + ")", width: 800, height: 600 }}>
                         <input type='file' name='Select Image File' onChange={this.handleImageChange} accept=".png,.jpeg,.jpg,.gif" />
                         <Form>
                             <FormHeader>
-                                {this.state.title}
+                                {this.state.recipe.title}
                             </FormHeader>
                             <FormField>
                                 <Label>Recipe Name:</Label>
-                                <Error>{this.state.error}</Error>
+                                {/* <Error>{this.state.recipe.error}</Error> */}
                                 <Input
                                     id="recipe_name"
-                                    value={this.state.title}
+                                    value={this.state.recipe.title}
                                     onChange={this.handleTitleChange}
                                 />
                             </FormField>
@@ -289,7 +304,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                                 <Label>Recipe Instruction:</Label>
                                 <TextareaInput
                                     id="recipe_instructions"
-                                    value={this.state.instructions}
+                                    value={this.state.recipe.instructions}
                                     onChange={this.handleInstructionsChange}
                                     rows={7}
                                 />

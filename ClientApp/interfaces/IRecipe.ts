@@ -4,6 +4,7 @@ export interface IRecipe {
     id: string;
     title: string;
     instructions: string;
-    image: string;
+    imageBase64String: string;
     ingredients: IIngredient[];
+    isEditing: boolean;
 }
