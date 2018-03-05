@@ -13,7 +13,7 @@ namespace App.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Image = table.Column<string>(nullable: true),
+                    ImageBase64String = table.Column<string>(nullable: true),
                     Instructions = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true)
                 },

@@ -11,7 +11,7 @@ using System;
 namespace App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180224192352_InitialCreate")]
+    [Migration("20180305193953_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,7 +43,7 @@ namespace App.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Image");
+                    b.Property<string>("ImageBase64String");
 
                     b.Property<string>("Instructions");
 
@@ -57,7 +57,7 @@ namespace App.Migrations
             modelBuilder.Entity("App.Models.Ingridient", b =>
                 {
                     b.HasOne("App.Models.Recipe", "Recipe")
-                        .WithMany("Ingridients")
+                        .WithMany("Ingredients")
                         .HasForeignKey("RecipeId");
                 });
 #pragma warning restore 612, 618

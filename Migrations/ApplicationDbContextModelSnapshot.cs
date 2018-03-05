@@ -42,7 +42,7 @@ namespace App.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Image");
+                    b.Property<string>("ImageBase64String");
 
                     b.Property<string>("Instructions");
 
@@ -56,7 +56,7 @@ namespace App.Migrations
             modelBuilder.Entity("App.Models.Ingridient", b =>
                 {
                     b.HasOne("App.Models.Recipe", "Recipe")
-                        .WithMany("Ingridients")
+                        .WithMany("Ingredients")
                         .HasForeignKey("RecipeId");
                 });
 #pragma warning restore 612, 618
