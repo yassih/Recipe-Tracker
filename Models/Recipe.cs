@@ -14,7 +14,7 @@ namespace App.Models
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Instructions {get; set;}
-        public string Image { get; set; }
-        public ICollection<Ingridient> Ingridients {get; set;}
+        public string ImageBase64String { get; set; }
+        public ICollection<Ingridient> Ingredients {get; set;}
     }
 }

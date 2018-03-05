@@ -22,7 +22,7 @@ export class ListRecipes extends React.Component<RouteComponentProps<{}>, { reci
         };
     }
 
-    componentDidMount() {
+     public componentDidMount() {
         this.listRecipes();
     }
 
@@ -48,12 +48,11 @@ export class ListRecipes extends React.Component<RouteComponentProps<{}>, { reci
             this.state.recipesSource.forEach((recipe: any) => {
                 console.log('printing id');
                 console.log(recipe.id);
-                recipeList.push(<RecipeCard key={recipe.id} title={recipe.title} recipeId={recipe.id} image={recipe.image}></RecipeCard>);
+                recipeList.push(<RecipeCard key={recipe.id} title={recipe.title} recipeId={recipe.id} image={recipe.imageBase64String}></RecipeCard>);
             });
         } else {
             recipeList.push(<li>No Recipe Available</li>);
         }
-
 
         return (
             <Container>

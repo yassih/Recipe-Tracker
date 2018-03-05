@@ -46,7 +46,6 @@ const RecipeCard = (props: any) => {
                     </Title>
                 </Card>
             </Link>
-
         </div>
     );
 };

@@ -7,9 +7,9 @@ import { AddRecipe } from './components/AddRecipe';
 import { ListRecipes } from './components/ListRecipes';
 
 export const routes = <Layout>
-    <Route exact path='/' component={AddRecipe} />
+    <Route exact path='/' component={ListRecipes} />
     <Route path='/fetchdata' component={FetchData} />
-    <Route path='/home' component={FetchData} />
+    <Route path='/home' component={ListRecipes} />
     <Route path='/addrecipe/:id?' component={AddRecipe} />
     <Route path='/listrecipes' component={ListRecipes} />
 </Layout>;

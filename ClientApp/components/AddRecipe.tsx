@@ -13,6 +13,7 @@ import Button from '../components/Button';
 
 interface ILocalState {
     recipe: IRecipe;
+    isEditing: boolean;
 }
 
 const Outer: any = styled.div`
@@ -116,7 +117,14 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         super();
 
         this.state = {
-            recipe: null
+            recipe: {
+                id: '',
+                title: '',
+                instructions: '',
+                imageBase64String: '',
+                ingredients: []
+            },
+            isEditing: false
         };
 
         autobind(this);
@@ -126,7 +134,17 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
         if (this.props.match.params && this.props.match.params['id']) {
             let id = this.props.match.params['id'];
             ApiService.getRecipeById(id).then((data) => {
-                this.setState((prevState) => ({ title: data.title, imageBase64String: data.image }));
+                this.setState({ isEditing: true });
+                this.setState({
+                    recipe: {
+                        ...this.state.recipe,
+                        imageBase64String: data.imageBase64String,
+                        title: data.title,
+                        instructions: data.instructions,
+                        ingredients: data.ingredients, //This typo has to be corrected eventually
+                        id: data.id
+                    }
+                });
             });
         } else {
             this.setState({
@@ -141,17 +159,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
     }
 
     public cancelChanges() {
-        this.setState((prevState) => {
-            return prevState;
-        });
-
-        // this.setState((prevState) => {
-        //     return {
-        //         ...prevState,
-        //         isAddNewModalVisible: false
-        //     };
-        // });
-
+        //
     }
 
     private handleImageChange(event: any): void {
@@ -167,18 +175,22 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
 
     private onImageLoad(event: any) {
         const base64 = event.target.result;
-        this.setState((prevState) => ({ ...prevState, imageBase64String: base64 }));
+        this.setState({
+            recipe: {
+                ...this.state.recipe,
+                imageBase64String: base64
+            }
+        });
     }
 
     private handleTitleChange(event: any): void {
         this.setState({
             recipe: {
                 ...this.state.recipe,
-                title: event.target.value, isEditing: true
-            }
-
+                title: event.target.value
+            },
+            isEditing: true
         });
-
     }
 
     private handleInstructionsChange(event: any): void {
@@ -220,9 +232,9 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
             instructions: this.state.recipe.instructions,
             title: this.state.recipe.title,
             imageBase64String: this.state.recipe.imageBase64String,
-            ingredients: this.state.recipe.ingredients,
-            isEditing: this.state.recipe.isEditing
+            ingredients: this.state.recipe.ingredients //correct this typo
         };
+        //let isEditingVariable: this.state.recipe.isEditing;
 
         ApiService.addRecipe(recipe).then((data) => {
             if (data) {
@@ -231,10 +243,10 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                 toast.success("Recipe was successfully added");
                 this.setState({
                     recipe: {
-                        ...this.state.recipe,
-                        isEditing: false
+                        ...this.state.recipe
                     }
-                     });
+
+                });
                 this.props.history.push(`/addrecipe/${data.id}`);
             } else {
                 console.log('something is wrong');
@@ -259,7 +271,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
     public render() {
         let formatedIngredientsList: any = [];
 
-        const isEnabled: boolean = (this.state.recipe.title) && (this.state.recipe.isEditing);
+        const isEnabled: boolean = (this.state.recipe.title) && (this.state.isEditing) ? true : false;
         if (this.ingredientList) {
             this.ingredientList.forEach((item: any) => {
                 formatedIngredientsList.push(<span>

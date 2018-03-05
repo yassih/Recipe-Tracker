@@ -68,7 +68,8 @@ namespace App.Controllers
         {
             try
             {
-                return Ok(_dataService.GetRecipeById(recipeId));
+                var a = _dataService.GetRecipeById(recipeId);
+                return Ok(a);
             }
             catch
             {
