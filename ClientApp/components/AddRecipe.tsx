@@ -124,7 +124,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                 imageBase64String: '',
                 ingredients: []
             },
-            isEditing: false
+            isEditing: true
         };
 
         autobind(this);
@@ -141,9 +141,10 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                         imageBase64String: data.imageBase64String,
                         title: data.title,
                         instructions: data.instructions,
-                        ingredients: data.ingredients, //This typo has to be corrected eventually
+                        ingredients: data.ingredients,
                         id: data.id
-                    }
+                    },
+                    isEditing: false
                 });
             });
         } else {
@@ -158,8 +159,8 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
 
     }
 
-    public cancelChanges() {
-        //
+    public navigateBack() {
+        this.context.router.history.Back();
     }
 
     private handleImageChange(event: any): void {
@@ -198,7 +199,8 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
             recipe: {
                 ...this.state.recipe,
                 instructions: event.target.value
-            }
+            },
+            isEditing: true
         });
     }
 
@@ -232,7 +234,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
             instructions: this.state.recipe.instructions,
             title: this.state.recipe.title,
             imageBase64String: this.state.recipe.imageBase64String,
-            ingredients: this.state.recipe.ingredients //correct this typo
+            ingredients: this.state.recipe.ingredients
         };
         //let isEditingVariable: this.state.recipe.isEditing;
 
@@ -244,7 +246,8 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                 this.setState({
                     recipe: {
                         ...this.state.recipe
-                    }
+                    },
+                    isEditing: false
 
                 });
                 this.props.history.push(`/addrecipe/${data.id}`);
@@ -329,9 +332,8 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
                             />
                             <Button
                                 type='button'
-                                onClick={this.cancelChanges}
-                                value='Cancel Changes'
-                                disabled={!isEnabled}
+                                onClick={this.navigateBack}
+                                value='Back'
                             />
                         </Form>
                     </Image>
