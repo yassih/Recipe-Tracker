@@ -160,7 +160,7 @@ export class AddRecipe extends React.Component<RouteComponentProps<{}>, ILocalSt
     }
 
     public navigateBack() {
-        this.context.router.history.Back();
+        this.props.history.goBack();
     }
 
     private handleImageChange(event: any): void {
