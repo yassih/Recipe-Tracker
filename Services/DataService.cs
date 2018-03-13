@@ -27,13 +27,17 @@ namespace App.Services
                 }
 
                 List<Recipe> allRecipes = _dataRepository.GetAllRecipes();
-                foreach (var item in allRecipes)
+                if (allRecipes != null)
                 {
-                    if (item.Title == recipe.Title)
+                    foreach (var item in allRecipes)
                     {
-                        throw new DuplicateNameException("duplicate name");
+                        if (item.Title == recipe.Title)
+                        {
+                            throw new DuplicateNameException("duplicate name");
+                        }
                     }
                 }
+
                 _dataRepository.CreateRecipe(recipe);
             }
 
@@ -75,7 +79,7 @@ namespace App.Services
                 Guid recipeId;
                 if (Guid.TryParse(id, out recipeId))
                 {
-                    return  _dataRepository.GetRecipeById(recipeId);
+                    return _dataRepository.GetRecipeById(recipeId);
                 }
                 else
                 {
