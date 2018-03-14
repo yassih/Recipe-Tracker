@@ -26,12 +26,12 @@ namespace App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();//4:38 changes
+            services.AddMvc();
             //services.AddDbContext<ApplicationDbContext>();
             
 
-            services.AddTransient<IDataService,DataService>();// this can get better by getting it from app config or soemthing
-            services.AddTransient<IDataRepository,DataRepository>();
+            services.AddTransient<IDataService,DataService>();// this can get better by getting it from app config or something
+            services.AddTransient<IDataRepository,MockDataRepository>();
             //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString: "Data Source=Recipe.db"));
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
         }
