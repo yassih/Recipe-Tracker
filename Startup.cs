@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using App.Models;
 using App.Services;
 using App.Repository;
+using App.DataStore;
 
 namespace App
 {
@@ -32,6 +33,7 @@ namespace App
 
             services.AddTransient<IDataService,DataService>();// this can get better by getting it from app config or something
             services.AddTransient<IDataRepository,MockDataRepository>();
+            services.AddSingleton<RecipeStore, RecipeStore>();
             //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString: "Data Source=Recipe.db"));
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
         }
